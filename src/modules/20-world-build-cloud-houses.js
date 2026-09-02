@@ -10,8 +10,9 @@
 // @otthi-module-body
   function createLifeExpansionWorld(){createLakeExpansion();createCampfireZone();createHuntingArea();restoreLifeExpansion();applyCloudWorldObjects();}
   function createTioThiagoWorkshop(workshop){
-    if(!workshop)return null;const tio=createNPC('tio-thiago','Tio Thiago',workshop.x+1.15,workshop.z+1.85,0x111318,1);if(typeof applyTioThiagoReferenceSkin==='function')applyTioThiagoReferenceSkin(tio);tio.stationary=true;tio.stationaryHeading=Math.PI;tio.group.rotation.y=Math.PI;tio.group.position.y=0;
-    tio.interiorOnlyHouseId='workshop';tio.group.visible=false;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;action.houseId='workshop';action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
+    if(!workshop)return null;const tio=createNPC('tio-thiago','Tio Thiago',workshop.x+4.55,workshop.z+1.90,0x111318,1);if(typeof applyTioThiagoReferenceSkin==='function')applyTioThiagoReferenceSkin(tio);tio.stationary=true;tio.stationaryHeading=Math.PI;tio.group.rotation.y=Math.PI;tio.group.position.y=0;
+    // A oficina agora é um barracão aberto no próprio mundo: Tio Thiago fica visível por distância, sem modo-interior paralelo.
+    tio.interiorOnlyHouseId='';tio.group.visible=true;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;delete action.houseId;action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
     return tio;
   }
   function buildWorld(){
@@ -125,7 +126,7 @@
   }
   async function handleHouseDoor(house){
     const uid=window.OTTHOS_RTDB?.uid,cloud=cloudHouseRecord(house.id),mine=isMyCloudHouse(cloud),local=state.houses[house.id]||{};
-    if(house.id==='workshop')return enterHouse(house);
+    if(house.id==='workshop'){toast('A oficina é um barracão aberto. Entre a pé ou dirija o veículo diretamente até o elevador.','good',2600);return true;}
     if(house.publicBuilding){if(await confirmModal(house.name,'Deseja entrar?','Entrar','Cancelar'))enterHouse(house);return;}
     if(house.id==='home'){openModal('Minha casa',`<p>Esta é a residência principal de <b>${escapeHtml(playerDisplayName())}</b>. Ela permanece acessível neste aparelho e não depende da propriedade compartilhada do bairro.</p><div class="modal-actions"><button class="btn primary" data-enter-home>Entrar</button><button class="btn" data-cancel>Cancelar</button></div>`,root=>{$('[data-enter-home]',root).onclick=()=>{closeModal();enterHouse(house);};$('[data-cancel]',root).onclick=closeModal;});return;}
     if(cloud&&!mine){

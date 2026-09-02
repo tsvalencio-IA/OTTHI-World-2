@@ -152,7 +152,7 @@
     signs:Object.freeze([
       {id:'guide-vila',kind:'guide',text:'Vila do Sol',x:12,z:12,rotationY:0},
       {id:'guide-market',kind:'guide',text:'Mercadinho',x:-22,z:-12,rotationY:0},
-      {id:'guide-workshop',kind:'guide',text:'Oficina',x:22,z:-12,rotationY:0},
+      {id:'guide-workshop',kind:'guide',text:'Oficina',x:13.4,z:-11.2,rotationY:0},
       {id:'guide-forest',kind:'guide',text:'Floresta',x:-62,z:-25,rotationY:1.5708},
       {id:'guide-farm',kind:'guide',text:'Fazenda • Garagem',x:82,z:44,rotationY:0},
       {id:'guide-castle',kind:'guide',text:'Castelo',x:106,z:34,rotationY:0},
@@ -173,7 +173,7 @@
       {id:'blue',kind:'house',point:'blue',w:9,d:7,margin:1.2},
       {id:'pink',kind:'house',point:'pink',w:9,d:7,margin:1.2},
       {id:'shop',kind:'house',point:'shop',w:9,d:7,margin:1.2},
-      {id:'workshop',kind:'house',point:'workshop',w:9,d:7,margin:1.2},
+      {id:'workshop',kind:'house',point:'workshop',w:15,d:12,margin:.8},
       {id:'school',kind:'house',point:'school',w:9,d:7,margin:1.4},
       {id:'school-east',kind:'house',point:'schoolEast',w:9,d:7,margin:1.4},
       {id:'police',kind:'house',point:'police',w:9,d:7,margin:1.4},
