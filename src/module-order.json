@@ -21,14 +21,14 @@
       "startLine": 369,
       "endLine": 488,
       "description": "Normalização, merge, tombstones e persistência das construções",
-      "sha256Body": "04668e529ffabfe01472c28fe143e0c0f2c28766ab991c7453ea9b24a47073f5"
+      "sha256Body": "bdba1506500fcee093f1c1520f879b5edab60b615b5598edc1e13dd4bdd7ce01"
     },
     {
       "file": "src/modules/02-state-save-cloud-account.js",
       "startLine": 490,
       "endLine": 756,
       "description": "Estado, save local, IndexedDB, nuvem e conta",
-      "sha256Body": "07f0cfd1580f2365440468b8e0e4d584284c3497461e1f4ad5ac17d60b34aaed"
+      "sha256Body": "67ac8284f0d4d3bb153549a54dfed90929745d77ae4c5a13f21e077eb31d25f4"
     },
     {
       "file": "src/modules/03-ui-modal-install-pwa.js",
@@ -42,7 +42,7 @@
       "startLine": 1043,
       "endLine": 1171,
       "description": "Desafios diários, educação, quiz e coleção",
-      "sha256Body": "2d2e263c3f73a57b1a098e634d10bf68cd70f4a8d47e048dc8625e1fb23bea86"
+      "sha256Body": "0620b60bda20f133b6f380c9d65c5cf8fc5dd3ba909a296ca08606ef00283a2e"
     },
     {
       "file": "src/modules/05-avatar-life-customization.js",
@@ -112,7 +112,7 @@
       "startLine": 2743,
       "endLine": 2991,
       "description": "Casas, interiores, NPCs, inimigos, cristais, veículos e academia",
-      "sha256Body": "c738fe0823267577212c297624992466a5d990712549f396f239c586b2c7b5ae"
+      "sha256Body": "03e8c3250f2460cdede4b535f9bf7a6be281408053f116a908b6fba77d2917c4"
     },
     {
       "file": "src/modules/13a-sports-kart-v705.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "4e0ec9badeae12a9bbf92e55f039b01e73464f50117775f75f937c4b2793c49d"
+      "sha256Body": "08b0162e9d6d0075b3d780686be0e9d400148e99513a6e62d39dab363e5237b1"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "6de1902b0778fb2c3656850f2a51bd3406dec97c9b9df171ae6f9e434f6b2950"
+      "sha256Body": "8386b2dc072cd2ec73feef2e267dc2aeae5b8f0f47f301c9878b8e132b34c61f"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -231,7 +231,7 @@
       "startLine": 4767,
       "endLine": 4928,
       "description": "Sociedade NPC, inimigos, combate, câmera, contexto, ação e necessidades",
-      "sha256Body": "803a4b887948dbbd73f74c6bacfdf5620694107f76d7cc297fb1293488614a43"
+      "sha256Body": "21025d609ae13e2d5512f2c260d8284530320b5f8a8168d4f6897cdb84d1b234"
     },
     {
       "file": "src/modules/28-multiplayer-social-online.js",
