@@ -258,7 +258,7 @@
   }
   function updateDynamicEntityVisibility(){
     const ranges=performanceDistanceRanges(),distance=(x,z)=>Math.hypot(player.x-Number(x||0),player.z-Number(z||0));let visible=0,hidden=0;
-    for(const npc of world.npcs||[]){if(!npc?.group)continue;if(npc.coopRaceBot&&!npc.coopRaceMode){npc.group.visible=false;hidden++;continue;}const keep=!!npc.passengerMode||!!npc.following||!!npc.coopRaceMode,show=keep||distance(npc.group.position.x,npc.group.position.z)<=ranges.npc;npc.group.visible=show;if(show)visible++;else hidden++;}
+    for(const npc of world.npcs||[]){if(!npc?.group)continue;if(npc.coopRaceBot&&!npc.coopRaceMode){npc.group.visible=false;hidden++;continue;}const keep=!!npc.passengerMode||!!npc.following||!!npc.coopRaceMode,insideOk=!npc.interiorOnlyHouseId||currentHouse?.id===npc.interiorOnlyHouseId,show=insideOk&&(keep||distance(npc.group.position.x,npc.group.position.z)<=ranges.npc);npc.group.visible=show;if(show)visible++;else hidden++;}
     for(const resource of world.resources||[]){const object=resource?.mesh;if(!object)continue;const show=!resource.collected&&distance(resource.x,resource.z)<=ranges.resource;object.visible=show;if(show)visible++;else hidden++;}
     for(const enemy of world.enemies||[]){if(!enemy?.group)continue;const show=!enemy.dead&&distance(enemy.group.position.x,enemy.group.position.z)<=ranges.enemy;enemy.group.visible=show;if(show)visible++;else hidden++;}
     for(const crystal of world.crystals||[]){const object=crystal?.mesh;if(!object)continue;const show=!crystal.got&&distance(crystal.x,crystal.z)<=ranges.crystal;object.visible=show;if(show)visible++;else hidden++;}

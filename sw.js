@@ -1,4 +1,4 @@
-const REVISION = 'f8bb096bf2a1d381';
+const REVISION = '83cb3a7acc471dd8';
 const CACHE = `otthi-v70593-${REVISION}`;
 const CACHE_PREFIXES = ['otthi-','otthi-game-web-','otthos-life-world-main-'];
 const BUILD = '705.16-otton-connect-progression-r16';
@@ -50,6 +50,7 @@ const OPTIONAL_ASSETS = [
   './assets/textures/city-glass-v632.png',
   './assets/textures/emergency-metal-v632.png',
   './assets/world/pbr-manifest.json',
+  './assets/branding/thiaguinho-solucoes-digitais.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/favicon.png'

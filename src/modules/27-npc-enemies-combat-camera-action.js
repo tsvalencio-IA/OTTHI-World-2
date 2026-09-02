@@ -44,7 +44,8 @@
   function updateNPCs(dt){
     const now=performance.now();
     for(const npc of world.npcs){
-      const near=distance2D(player,npc.group.position)<3.2,oldX=npc.group.position.x,oldZ=npc.group.position.z,b=v705NpcBrain(npc);
+      const near=distance2D(player,npc.group.position)<3.2,oldX=npc.group.position.x,oldZ=npc.group.position.z,b=v705NpcBrain(npc),culled=npc.group.visible===false&&!npc.passengerMode&&!npc.following&&!npc.coopRaceMode;
+      if(culled&&!npc.mobility)continue;
       if(npc.passengerMode){const heading=npc.passengerMode==='boat'?player.boat.heading:player.car.heading,lx=.65,lz=npc.passengerMode==='boat'?.62:-.18;npc.group.position.x=player.x+Math.cos(heading)*lx+Math.sin(heading)*lz;npc.group.position.z=player.z-Math.sin(heading)*lx+Math.cos(heading)*lz;npc.group.position.y=npc.passengerMode==='boat'?.75:.3;npc.group.rotation.y=heading;}
       else if(npc.fishingActivity){npc.group.position.x=npc.baseX;npc.group.position.z=npc.baseZ;npc.group.rotation.y=npc.fishingActivity.heading;}
       else if(npc.coopRaceMode){/* posição sincronizada pela missão cooperativa */}
@@ -60,6 +61,7 @@
         else if(b.state==='wander'){v705NpcWalk(npc,dt,b.target,1.2+(npc.id.length%4)*.08);}
         else if(b.target)v705NpcWalk(npc,dt,b.target,1.1);
       }
+      if(npc.group.visible===false&&!npc.passengerMode&&!npc.following&&!npc.coopRaceMode)continue;
       if(!npc.passengerMode)npc.group.position.y=lerp(npc.group.position.y,v705GroundY? v705GroundY(npc.group.position.x,npc.group.position.z):groundHeightAt(npc.group.position.x,npc.group.position.z),Math.min(1,dt*8));
       const moved=Math.hypot(npc.group.position.x-oldX,npc.group.position.z-oldZ),riding=!!npc.mobility&&!npc.passengerMode&&!npc.following,walk=moved>.001&&!riding?Math.sin(animTime*(b.state==='evade'?12:8.5)+npc.phase)*.58:0,gesture=near?Math.sin(animTime*2.4+npc.phase)*.1:0,emote=performance.now()<npc.emoteUntil?npc.emoteType:'';
       if(npc.limbs){npc.limbs.leftArm.rotation.x=lerp(npc.limbs.leftArm.rotation.x,riding?-1.2:emote==='dance'?-1.35:walk+gesture,.2);npc.limbs.rightArm.rotation.x=lerp(npc.limbs.rightArm.rotation.x,riding?-1.2:emote==='wave'?-2.0:emote==='dance'?-1.35:-walk-gesture,.2);npc.limbs.leftLeg.rotation.x=lerp(npc.limbs.leftLeg.rotation.x,riding?1.05:-walk*.76,.2);npc.limbs.rightLeg.rotation.x=lerp(npc.limbs.rightLeg.rotation.x,riding?1.05:walk*.76,.2);}
@@ -70,6 +72,7 @@
   function updateEnemies(dt){
     for(const e of world.enemies){
       if(e.dead){if(performance.now()-e.lastHit>18000){e.dead=false;e.hp=e.type==='golem'?3:1;e.group.visible=true;e.group.position.set(e.baseX,0,e.baseZ);}continue;}
+      if(e.group?.visible===false)continue;
       const d=distance2D(player,e);let tx=e.baseX+Math.sin(animTime*.55+e.phase)*4,tz=e.baseZ+Math.cos(animTime*.48+e.phase)*4;
       if(d<9&&!currentHouse){tx=player.x;tz=player.z;}
       const speed=e.type==='bat'?2.1:e.type==='golem'?1.0:1.45;e.group.position.x=lerp(e.group.position.x,tx,dt*speed);e.group.position.z=lerp(e.group.position.z,tz,dt*speed);e.group.position.y=e.type==='bat'?1.2+Math.sin(animTime*3+e.phase)*.35:0;e.group.rotation.y=Math.atan2(tx-e.group.position.x,tz-e.group.position.z);

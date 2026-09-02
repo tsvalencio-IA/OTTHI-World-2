@@ -9,6 +9,11 @@
  */
 // @otthi-module-body
   function createLifeExpansionWorld(){createLakeExpansion();createCampfireZone();createHuntingArea();restoreLifeExpansion();applyCloudWorldObjects();}
+  function createTioThiagoWorkshop(workshop){
+    if(!workshop)return null;const tio=createNPC('tio-thiago','Tio Thiago',workshop.x+2.15,workshop.z+1.25,0x111318,1);if(typeof applyTioThiagoReferenceSkin==='function')applyTioThiagoReferenceSkin(tio);tio.stationary=true;tio.stationaryHeading=Math.PI;tio.group.rotation.y=Math.PI;tio.group.position.y=0;
+    tio.interiorOnlyHouseId='workshop';tio.group.visible=false;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;action.houseId='workshop';action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
+    return tio;
+  }
   function buildWorld(){
     worldGroup=new THREE.Group();scene.add(worldGroup);
     const worldSize=v704WorldSize(),ground=stableBox(worldSize.w+8,.3,worldSize.d+8,materials.grass,0,-.15,0,worldGroup,0);ground.receiveShadow=false;
@@ -44,7 +49,7 @@
     const pink=createHouse({id:'pink',name:'Casa Rosa',x:pp.x,z:pp.z,color:0xe58aae,roofColor:0xb63871,price:420});addHouseInterior(pink,'neighbor');
     const cabin=createHouse({id:'cabin',name:'Cabana da Floresta',x:cp.x,z:cp.z,color:0x7e4a28,roofColor:0x4d2b1c,price:180});addHouseInterior(cabin,'neighbor');
     const shop=createHouse({id:'shop',name:'Mercadinho',x:sp.x,z:sp.z,color:0xf1b83e,roofColor:0xc83a2f,publicBuilding:true});addHouseInterior(shop,'shop');
-    const workshop=createHouse({id:'workshop',name:'Oficina',x:wp.x,z:wp.z,color:0x8c96a4,roofColor:0x3d4a5a,publicBuilding:true});addHouseInterior(workshop,'workshop');
+    const workshop=createHouse({id:'workshop',name:'SOS Valêncio • Centro Automotivo',x:wp.x,z:wp.z,color:0x242a30,roofColor:0x101419,publicBuilding:true});addHouseInterior(workshop,'workshop');world.workshop=workshop;
     const school=createHouse({id:'school',name:'Escola Vila do Sol',x:sc.x,z:sc.z,color:0xf2c64e,roofColor:0x2f7fd8,publicBuilding:true});addHouseInterior(school,'school');world.school=school;
     const schoolEast=createHouse({id:'school-east',name:'Escola Horizonte',x:se.x,z:se.z,color:0xe9d68f,roofColor:0x2f7fd8,publicBuilding:true});addHouseInterior(schoolEast,'school');world.schools=[school,schoolEast];
     const policeStation=createHouse({id:'police',name:'Delegacia Central',x:ps.x,z:ps.z,color:0xe8edf3,roofColor:0x245da8,publicBuilding:true});addHouseInterior(policeStation,'police');world.policeStation=policeStation;
@@ -57,6 +62,7 @@
 
     // NPCs and their routes stay on pavements/roads from the master graph.
     const nino=createNPC('nino','Nino',4,3,0xffd84d,4),luna=createNPC('luna','Luna',-22,8,0xff72b6,4),teo=createNPC('teo','Teo',22,7,0x54c7ff,4),bia=createNPC('bia','Bia',-10,-10,0x8ee15c,3),maya=createNPC('maya','Maya',68,42,0xa66bff,3),clara=createNPC('clara','Clara',-66,-10,0xf0b62d,2),rafa=createNPC('rafa','Rafa',66,-10,0x2f7fd8,2),davi=createNPC('davi','Davi',66,-60,0xe54843,2),leo=createNPC('leo','Leo',34,58,0x38a66a,2);
+    const tioThiago=createTioThiagoWorkshop(workshop);world.tioThiago=tioThiago;
     createNpcMobility(clara,'bike',[[-66,-10],[-55,-10],[-55,0],[-66,0]],2.7);createNpcMobility(rafa,'moto',[[66,-10],[65,-10],[65,0],[76,0]],3.8);createNpcMobility(davi,'car',[[66,-60],[65,-60],[65,-18],[76,-18]],4.1);createNpcMobility(leo,'skate',[[34,58],[52,58],[68,58],[68,45]],3.0);
     createNpcMobility(nino,'bike',[[4,3],[4,10],[-18,10],[-18,0],[4,0]],3.2);createNpcMobility(luna,'skate',[[-22,8],[-34,8],[-34,0],[-12,0],[-12,8]],2.8);createNpcMobility(teo,'moto',[[22,7],[8,7],[8,-12],[35,-12],[35,7]],4.7);createNpcMobility(bia,'bike',[[-10,-10],[-10,0],[-48,0],[-48,-10]],3.4);createNpcMobility(maya,'car',[[68,42],[68,22],[65,0],[88,0],[88,42]],4.5);
 
@@ -143,6 +149,7 @@
     if(!house||!canEnterMobility(PLAYER_MODES.INTERIOR)){toast('Saia do transporte antes de entrar.','warn');return false;}
     rememberSafePlayerPosition(true);enterHouse.outdoorPosition={x:player.x,y:player.y,z:player.z,yaw:cameraYaw};enterHouse.outdoorYaw=cameraYaw;cameraYaw=0;clearMovementInputs();
     currentHouse=house;cameraMode='interior';
+    if(house.id==='workshop'){if(world.workshopDecor)world.workshopDecor.visible=true;if(world.tioThiago?.group)world.tioThiago.group.visible=true;}
     if(house.exteriorGroup){house.exteriorGroup.visible=false;if(house.interiorGroup)house.interiorGroup.visible=true;for(const item of house.interiorObjects||[])if(item?.visible!==undefined)item.visible=true;}
     else{house.roof.visible=false;house.front.visible=false;house.door.visible=false;}
     for(const bus of world.buses)bus.group.visible=false;
@@ -153,6 +160,7 @@
   }
   function exitHouse(){
     if(!currentHouse)return false;const h=currentHouse;
+    if(h.id==='workshop'){if(world.workshopDecor)world.workshopDecor.visible=false;if(world.tioThiago?.group)world.tioThiago.group.visible=false;}
     if(h.exteriorGroup){h.exteriorGroup.visible=true;if(h.interiorGroup)h.interiorGroup.visible=false;for(const item of h.interiorObjects||[])if(item?.visible!==undefined)item.visible=false;}
     else{h.roof.visible=true;h.front.visible=true;h.door.visible=true;}
     for(const bus of world.buses)bus.group.visible=true;

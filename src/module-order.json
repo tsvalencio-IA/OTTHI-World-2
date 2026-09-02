@@ -42,7 +42,7 @@
       "startLine": 1043,
       "endLine": 1171,
       "description": "Desafios diários, educação, quiz e coleção",
-      "sha256Body": "b42ad04b3c2360a7cc6c57586f4a03b2b0ec65ddd76c77a108d46e1835c0ad7e"
+      "sha256Body": "2d2e263c3f73a57b1a098e634d10bf68cd70f4a8d47e048dc8625e1fb23bea86"
     },
     {
       "file": "src/modules/05-avatar-life-customization.js",
@@ -84,7 +84,7 @@
       "startLine": 1808,
       "endLine": 2074,
       "description": "Responsividade, AR, modos, qualidade, LOD e diagnóstico",
-      "sha256Body": "6b175bacae93ecbe7d2cf9f9a7ed417b2e1aaa460a856aad1ee9c166a91f9a79"
+      "sha256Body": "ce95d2d1d67dd5b4d634a9e6f04c521842786af96421a4a289a0be2732777277"
     },
     {
       "file": "src/modules/10-player-skills.js",
@@ -112,7 +112,7 @@
       "startLine": 2743,
       "endLine": 2991,
       "description": "Casas, interiores, NPCs, inimigos, cristais, veículos e academia",
-      "sha256Body": "cdbc415f130389afc35999b21ea656e756852db2ce29b7030955391e05ebc7ec"
+      "sha256Body": "c738fe0823267577212c297624992466a5d990712549f396f239c586b2c7b5ae"
     },
     {
       "file": "src/modules/13a-sports-kart-v705.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "f32cbb95f3ab1e01db994bdc52b83334a61b8d9d342dbf70181c35c3b43f06a6"
+      "sha256Body": "4e0ec9badeae12a9bbf92e55f039b01e73464f50117775f75f937c4b2793c49d"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "83e1a8c76da77d7fa008b6e10aab1bf3619085e0a5e89bafe26bd26b253a27a6"
+      "sha256Body": "6de1902b0778fb2c3656850f2a51bd3406dec97c9b9df171ae6f9e434f6b2950"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -231,7 +231,7 @@
       "startLine": 4767,
       "endLine": 4928,
       "description": "Sociedade NPC, inimigos, combate, câmera, contexto, ação e necessidades",
-      "sha256Body": "450860baa7f7666e99fcc264ed11dba0406660812718dab9ebf1de9ac21c7753"
+      "sha256Body": "803a4b887948dbbd73f74c6bacfdf5620694107f76d7cc297fb1293488614a43"
     },
     {
       "file": "src/modules/28-multiplayer-social-online.js",
