@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16-otton-connect-progression-r16",
+  "build": "705.16.6-workshop-open-lift",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,7 @@
     }
   },
   "changes": [
+    "R16.6 transforma exclusivamente a oficina em barracão alto e aberto no mundo, com entrada física de veículos, elevador automotivo funcional, inspeção visual de componentes e reparo pelo sistema real de dano, preservando os demais sistemas.",
     "R16.5 transforma a thIAguinho Soluções Digitais em um laboratório jogável de projetos com briefing, arquitetura/UX, implementação, testes, correções, entrega e portfólio persistente.",
     "R16.5 reconstrói a experiência da oficina em linguagem industrial inspirada na referência real, adiciona recepção técnica, scanner com integridade real dos veículos e ações do Tio Thiago sem remover a bancada legada.",
     "R16.5 aproxima o Otton Connect de uma rotina de estudo por folhas/séries: todos os exercícios são concluídos, erros entram em correção obrigatória, precisão/tempo continuam medidos e os formatos variam dentro da mesma habilidade.",
@@ -189,6 +190,7 @@
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
+    "R16.6 altera somente o escopo da oficina e seus testes de regressão: o restante da jogabilidade permanece preservado; homologação visual e física no aparelho continua necessária.",
     "Os exercícios R16 são originais do Otton Connect e usam princípios gerais de progressão, revisão, autonomia e fluência; não reproduzem folhas, textos, nomenclaturas de estágio ou interface proprietária de terceiros.",
     "A Tia Thamis é uma personagem original da escola; o Método Otton e o Otton Connect são identidades fictícias inspiradas em rotina progressiva de estudo, sem uso de marca externa.",
     "R11.3.1 corrige o bloqueio da AÇÃO ao entrar no veículo reservado em missões solo de serviços e renova o token web para evitar cache antigo sem apagar dados do usuário.",
@@ -211,8 +213,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70594,
-  "revisionLabel": "R16.5-otton-oficina-projetos-performance",
+  "assetVersion": 70595,
+  "revisionLabel": "R16.6-oficina-barracao-elevador",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",
