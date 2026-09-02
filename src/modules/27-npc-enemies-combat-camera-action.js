@@ -44,8 +44,8 @@
   function updateNPCs(dt){
     const now=performance.now();
     for(const npc of world.npcs){
-      const near=distance2D(player,npc.group.position)<3.2,oldX=npc.group.position.x,oldZ=npc.group.position.z,b=v705NpcBrain(npc),culled=npc.group.visible===false&&!npc.passengerMode&&!npc.following&&!npc.coopRaceMode;
-      if(culled&&!npc.mobility)continue;
+      const playerDistance=distance2D(player,npc.group.position),near=playerDistance<3.2,oldX=npc.group.position.x,oldZ=npc.group.position.z,b=v705NpcBrain(npc),culled=npc.group.visible===false&&!npc.passengerMode&&!npc.following&&!npc.coopRaceMode,background=playerDistance>(perf.mobile?62:88)&&!npc.passengerMode&&!npc.following&&!npc.coopRaceMode&&!npc.mobility&&!near;
+      if(culled&&!npc.mobility)continue;if(background){npc._perfSkipSeq=(Number(npc._perfSkipSeq||0)+1)%3;if(npc._perfSkipSeq!==0)continue;}
       if(npc.passengerMode){const heading=npc.passengerMode==='boat'?player.boat.heading:player.car.heading,lx=.65,lz=npc.passengerMode==='boat'?.62:-.18;npc.group.position.x=player.x+Math.cos(heading)*lx+Math.sin(heading)*lz;npc.group.position.z=player.z-Math.sin(heading)*lx+Math.cos(heading)*lz;npc.group.position.y=npc.passengerMode==='boat'?.75:.3;npc.group.rotation.y=heading;}
       else if(npc.fishingActivity){npc.group.position.x=npc.baseX;npc.group.position.z=npc.baseZ;npc.group.rotation.y=npc.fishingActivity.heading;}
       else if(npc.coopRaceMode){/* posição sincronizada pela missão cooperativa */}
@@ -73,7 +73,7 @@
     for(const e of world.enemies){
       if(e.dead){if(performance.now()-e.lastHit>18000){e.dead=false;e.hp=e.type==='golem'?3:1;e.group.visible=true;e.group.position.set(e.baseX,0,e.baseZ);}continue;}
       if(e.group?.visible===false)continue;
-      const d=distance2D(player,e);let tx=e.baseX+Math.sin(animTime*.55+e.phase)*4,tz=e.baseZ+Math.cos(animTime*.48+e.phase)*4;
+      const d=distance2D(player,e);if(d>(perf.mobile?58:82)){e._perfSkipSeq=(Number(e._perfSkipSeq||0)+1)%3;if(e._perfSkipSeq!==0)continue;}let tx=e.baseX+Math.sin(animTime*.55+e.phase)*4,tz=e.baseZ+Math.cos(animTime*.48+e.phase)*4;
       if(d<9&&!currentHouse){tx=player.x;tz=player.z;}
       const speed=e.type==='bat'?2.1:e.type==='golem'?1.0:1.45;e.group.position.x=lerp(e.group.position.x,tx,dt*speed);e.group.position.z=lerp(e.group.position.z,tz,dt*speed);e.group.position.y=e.type==='bat'?1.2+Math.sin(animTime*3+e.phase)*.35:0;e.group.rotation.y=Math.atan2(tx-e.group.position.x,tz-e.group.position.z);
       if(d<1.45&&performance.now()>player.damageUntil){player.damageUntil=performance.now()+1100;if(performance.now()<player.shieldUntil){toast('O Escudo Furtivo bloqueou o ataque!','good',1300);beep(690,60,'sine');continue;}state.needs.energy=clamp(state.needs.energy-12,0,100);state.needs.fun=clamp(state.needs.fun-4,0,100);toast('Monstro acertou!','bad');vibrate([35,40,35]);saveState();}

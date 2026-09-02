@@ -10,7 +10,7 @@
 // @otthi-module-body
   function createLifeExpansionWorld(){createLakeExpansion();createCampfireZone();createHuntingArea();restoreLifeExpansion();applyCloudWorldObjects();}
   function createTioThiagoWorkshop(workshop){
-    if(!workshop)return null;const tio=createNPC('tio-thiago','Tio Thiago',workshop.x+2.15,workshop.z+1.25,0x111318,1);if(typeof applyTioThiagoReferenceSkin==='function')applyTioThiagoReferenceSkin(tio);tio.stationary=true;tio.stationaryHeading=Math.PI;tio.group.rotation.y=Math.PI;tio.group.position.y=0;
+    if(!workshop)return null;const tio=createNPC('tio-thiago','Tio Thiago',workshop.x+1.15,workshop.z+1.85,0x111318,1);if(typeof applyTioThiagoReferenceSkin==='function')applyTioThiagoReferenceSkin(tio);tio.stationary=true;tio.stationaryHeading=Math.PI;tio.group.rotation.y=Math.PI;tio.group.position.y=0;
     tio.interiorOnlyHouseId='workshop';tio.group.visible=false;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;action.houseId='workshop';action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
     return tio;
   }
