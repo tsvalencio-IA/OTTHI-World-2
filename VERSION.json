@@ -42,6 +42,10 @@
     }
   },
   "changes": [
+    "R16.5 transforma a thIAguinho Soluções Digitais em um laboratório jogável de projetos com briefing, arquitetura/UX, implementação, testes, correções, entrega e portfólio persistente.",
+    "R16.5 reconstrói a experiência da oficina em linguagem industrial inspirada na referência real, adiciona recepção técnica, scanner com integridade real dos veículos e ações do Tio Thiago sem remover a bancada legada.",
+    "R16.5 aproxima o Otton Connect de uma rotina de estudo por folhas/séries: todos os exercícios são concluídos, erros entram em correção obrigatória, precisão/tempo continuam medidos e os formatos variam dentro da mesma habilidade.",
+    "R16.5 reduz processamento de NPCs e inimigos muito distantes no orçamento móvel sem remover entidades ou sistemas.",
     "R16 expande o Otton Connect para 13 estágios originais em cada disciplina (M0–M12, P0–P12 e I0–I12), com dificuldade progressiva e tarefas específicas por habilidade.",
     "R16 adiciona domínio por etapa: mínimo de 80% de acerto, tempo de referência de fluência, estrelas, revisão automática e histórico de desempenho sem apagar o progresso existente.",
     "R16 amplia a Tia Thamis com plano individual, estágios, recomendações de revisão, falas contextuais e feedback pedagógico durante e após as tarefas.",
@@ -207,8 +211,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70593,
-  "revisionLabel": "R16-otton-connect-progressao-pedagogica",
+  "assetVersion": 70594,
+  "revisionLabel": "R16.5-otton-oficina-projetos-performance",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",
