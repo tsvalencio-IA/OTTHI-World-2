@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.6-workshop-open-lift",
+  "build": "705.16.7-workshop-sim-multiplayer-incidents",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "86205e387aa1775d7f0dd8a16f11318630577071d0f539eafcca789cf93c510d"
+      "sha256Body": "d458d31b788178583eee0114c167244c85a576ea8ba631d771c9246f5ff7792f"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -112,7 +112,7 @@
       "startLine": 2743,
       "endLine": 2991,
       "description": "Casas, interiores, NPCs, inimigos, cristais, veículos e academia",
-      "sha256Body": "98ce7bdbf452ca6fd65946015967ed61a3249aac182f76a51d95c99c2bb7c0b1"
+      "sha256Body": "9891c9cdca557f64b80272df7ac261a85e15d3104b299967280a75505c9bab36"
     },
     {
       "file": "src/modules/13a-sports-kart-v705.js",
@@ -147,7 +147,7 @@
       "startLine": 3310,
       "endLine": 3495,
       "description": "Bombeiros, incêndios, polícia, ambulância, segurança e incidentes",
-      "sha256Body": "c8fdea460e38e509e3b7ee2954f581eb11843c2cfbe5940eb3edbddfcca4fd52"
+      "sha256Body": "70fbde31eefbeca026ce45a531050d55748f211772f82d14092fa6615750c19f"
     },
     {
       "file": "src/modules/17-adventures-learning-world.js",
@@ -182,7 +182,7 @@
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "d9af6c304f7c85b667fa7c5641bede85bcbbb45845bae53fd9fb8e0d9dfd438c"
+      "sha256Body": "f6129072d53225f3c9897069dfb2af59dcc8beba6e3148a581bbe2a643ba8900"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -231,14 +231,14 @@
       "startLine": 4767,
       "endLine": 4928,
       "description": "Sociedade NPC, inimigos, combate, câmera, contexto, ação e necessidades",
-      "sha256Body": "21025d609ae13e2d5512f2c260d8284530320b5f8a8168d4f6897cdb84d1b234"
+      "sha256Body": "5b512acb04e73076f38b7a5083a8675b6ef723289868a25415db23d9bc1d4d5d"
     },
     {
       "file": "src/modules/28-multiplayer-social-online.js",
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "8322505230cb3bc474d10fe0a1655521384bd8152b13364238c971c66150abcf"
+      "sha256Body": "e465094facaf3e5ff0c13c8d499942624c09d48606df20e89a4269abd18978d4"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
