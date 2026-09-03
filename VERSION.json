@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.6-workshop-open-lift",
+  "build": "705.16.7-workshop-sim-multiplayer-incidents",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,7 @@
     }
   },
   "changes": [
+    "R16.7 mantém o restante do jogo preservado e evolui apenas três cadeias: oficina em pseudo-3D com câmera livre e conjunto inferior didático, visibilidade do veículo do outro usuário no multiplayer e ocorrências de trânsito autônomas que se resolvem e liberam a via sem depender do jogador.",
     "R16.6.2 corrige exclusivamente o fluxo da oficina: elevador ganha liberação do box para o pátio, recuperação de veículos deixados na área, manutenção individual por sistema e teste final antes da entrega.",
     "R16.6 transforma exclusivamente a oficina em barracão alto e aberto no mundo, com entrada física de veículos, elevador automotivo funcional, inspeção visual de componentes e reparo pelo sistema real de dano, preservando os demais sistemas.",
     "R16.5 transforma a thIAguinho Soluções Digitais em um laboratório jogável de projetos com briefing, arquitetura/UX, implementação, testes, correções, entrega e portfólio persistente.",
@@ -191,6 +192,7 @@
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
+    "R16.7 é uma revisão focal: oficina, representação veicular multiplayer e ciclo de acidentes; Android, Firebase root, Otton Connect, casas, esportes, polícia de abordagem e demais sistemas permanecem preservados.",
     "R16.6 altera somente o escopo da oficina e seus testes de regressão: o restante da jogabilidade permanece preservado; homologação visual e física no aparelho continua necessária.",
     "Os exercícios R16 são originais do Otton Connect e usam princípios gerais de progressão, revisão, autonomia e fluência; não reproduzem folhas, textos, nomenclaturas de estágio ou interface proprietária de terceiros.",
     "A Tia Thamis é uma personagem original da escola; o Método Otton e o Otton Connect são identidades fictícias inspiradas em rotina progressiva de estudo, sem uso de marca externa.",
@@ -214,8 +216,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70597,
-  "revisionLabel": "R16.6.2-oficina-fluxo-real",
+  "assetVersion": 70598,
+  "revisionLabel": "R16.7-oficina-simulador-multiplayer-incidentes",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",
