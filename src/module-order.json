@@ -182,7 +182,7 @@
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "69cd007239e37305c46278647263539fe6bb4915dc772b25a5f5ead27cea13cc"
+      "sha256Body": "d9af6c304f7c85b667fa7c5641bede85bcbbb45845bae53fd9fb8e0d9dfd438c"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
