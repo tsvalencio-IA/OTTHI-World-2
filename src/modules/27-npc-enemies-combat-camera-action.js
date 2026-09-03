@@ -101,7 +101,8 @@
 
   function updateCamera(dt){
     let desiredPos,look;
-    const sportFrame=window.OTTHI_SPORTS_V705?.cameraFrame?.();if(sportFrame){desiredPos=sportFrame.position;look=sportFrame.look;camera.fov=Number(sportFrame.fov||56);}
+    const workshopView=world.workshopInspectionCamera,lift=world.workshopLift;if(workshopView?.active&&lift?.vehicleId){const ground=groundHeightAt(lift.x,lift.z),pitch=clamp(cameraPitch,-.55,1.35),normalized=(pitch+.55)/1.9,dist=clamp(6.2+cameraZoom,3.4,13.5),height=lerp(.48,7.35,normalized),focusY=ground+Number(lift.height||0)+.82;desiredPos=new THREE.Vector3(lift.x-Math.sin(cameraYaw)*dist,ground+height,lift.z+Math.cos(cameraYaw)*dist);look=new THREE.Vector3(lift.x,focusY,lift.z);camera.fov=lerp(60,48,normalized);}
+    const sportFrame=!desiredPos?window.OTTHI_SPORTS_V705?.cameraFrame?.():null;if(sportFrame){desiredPos=sportFrame.position;look=sportFrame.look;camera.fov=Number(sportFrame.fov||56);}
     if(!desiredPos&&player.transit.mode==='bus'){
       const bus=world.buses.find(item=>item.id===player.transit.busId);
       if(bus){
@@ -135,6 +136,7 @@
   }
 
   function nearestInteractable(){
+    if(world.workshopInspectionCamera?.active)return{id:'workshop-inspection-exit',type:'workshop',icon:'🎥',label:'Sair da inspeção 3D',actionLabel:'Sair',radius:999,priority:5000,action:()=>typeof workshopStopInspectionCamera==='function'?workshopStopInspectionCamera(true):false};
     if(activeRace)return null;
     if(player.transit.mode==='metro')return null;
     if(player.transit.mode==='bus')return{id:'request-bus-stop',type:'bus',icon:'🔔',label:player.transit.requestStop?'Parada já solicitada':'Pedir próxima parada',radius:999,priority:999,action:()=>{player.transit.requestStop=true;updateTransitPanel();toast('Parada solicitada.','good',1200);}};
