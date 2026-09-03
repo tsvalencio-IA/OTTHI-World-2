@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.2-workshop-yard-delivery",
+  "build": "705.16.7.3-yard-scrapyard-garage-incidents",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "56275cbea8f35f668616939f18e81f8d0df1d4eea4f0db0fa7783f2c9d5e036c"
+      "sha256Body": "a5b9e4d6b1f16f466543f010ccb0ccd04eed5a90f7bdd999fe2a1daed6474dd3"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -21,14 +21,14 @@
       "startLine": 369,
       "endLine": 488,
       "description": "Normalização, merge, tombstones e persistência das construções",
-      "sha256Body": "bdba1506500fcee093f1c1520f879b5edab60b615b5598edc1e13dd4bdd7ce01"
+      "sha256Body": "04668e529ffabfe01472c28fe143e0c0f2c28766ab991c7453ea9b24a47073f5"
     },
     {
       "file": "src/modules/02-state-save-cloud-account.js",
       "startLine": 490,
       "endLine": 756,
       "description": "Estado, save local, IndexedDB, nuvem e conta",
-      "sha256Body": "67ac8284f0d4d3bb153549a54dfed90929745d77ae4c5a13f21e077eb31d25f4"
+      "sha256Body": "07f0cfd1580f2365440468b8e0e4d584284c3497461e1f4ad5ac17d60b34aaed"
     },
     {
       "file": "src/modules/03-ui-modal-install-pwa.js",
@@ -42,7 +42,7 @@
       "startLine": 1043,
       "endLine": 1171,
       "description": "Desafios diários, educação, quiz e coleção",
-      "sha256Body": "0620b60bda20f133b6f380c9d65c5cf8fc5dd3ba909a296ca08606ef00283a2e"
+      "sha256Body": "2d2e263c3f73a57b1a098e634d10bf68cd70f4a8d47e048dc8625e1fb23bea86"
     },
     {
       "file": "src/modules/05-avatar-life-customization.js",
@@ -56,7 +56,7 @@
       "startLine": 0,
       "endLine": 0,
       "description": "Fonte central de verdade do layout mundial V704",
-      "sha256Body": "9c9237335d852a023e007f174f8c69b9c77188f3f080b3446e2c46731d109115"
+      "sha256Body": "81e3b8b73e832ab4565444612de32bf6010420db40d0841bdb5271c3beb0c5da"
     },
     {
       "file": "src/modules/06-missions-profile-hud-inventory-tools.js",
@@ -147,7 +147,7 @@
       "startLine": 3310,
       "endLine": 3495,
       "description": "Bombeiros, incêndios, polícia, ambulância, segurança e incidentes",
-      "sha256Body": "70fbde31eefbeca026ce45a531050d55748f211772f82d14092fa6615750c19f"
+      "sha256Body": "f36e97f0ed4caa78b9690948d8d0fe15d496d1434030854345e258a576ab903a"
     },
     {
       "file": "src/modules/17-adventures-learning-world.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "a999576ac666d99723c00bd66d53bb929df087f0c7a2e5fc064b6e5a591e6b5f"
+      "sha256Body": "4e0ec9badeae12a9bbf92e55f039b01e73464f50117775f75f937c4b2793c49d"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "8c03af43cdc3ac56bc531435321bc174ade5182ca2a879449129599612b66230"
+      "sha256Body": "15d060a0df2b3567fca5ce1635f63ed37d7f28f70051aa2289f5898d2d757b86"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -238,7 +238,7 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "e98ea679156705224b9c8f09ca29bd28bab3659ccf5f1141672e5042e2644bed"
+      "sha256Body": "c441dd4b1e6769f9b51227e23cccedd044c358f98ac9a2254d1df3707cf68897"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
@@ -287,7 +287,7 @@
       "startLine": 5958,
       "endLine": 6056,
       "description": "Construção modular, oficina e veículos montáveis",
-      "sha256Body": "2b161f44dfcccf0849d076ab964d4d03a85808c52a1addca6cccd836ca99300d"
+      "sha256Body": "ddcb10408e01879252d14294268c55f52e9229537196016aab56bc6c66367ce2"
     },
     {
       "file": "src/modules/36a-vehicle-damage-repair-v704.js",

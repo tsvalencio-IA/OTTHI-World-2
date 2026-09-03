@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.2-workshop-yard-delivery',
+    build: '705.16.7.3-yard-scrapyard-garage-incidents',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
