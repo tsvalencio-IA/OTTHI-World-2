@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7-workshop-sim-multiplayer-incidents",
+  "build": "705.16.7.2-workshop-yard-delivery",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,8 @@
     }
   },
   "changes": [
+    "R16.7.2 substitui a R16.7.1 ainda não publicada: preserva sincronização vertical/desmontagem do elevador e adiciona pátio organizado por status/proprietário, vagas sem empilhamento, retirada dirigindo após teste final e bloqueio de saída para veículos pendentes ou sem conserto.",
+    "R16.7.1 mantém o restante do jogo preservado e corrige a oficina/multiplayer: o veículo remoto acompanha a altura real do elevador em tempo quase real e o simulador permite remover/reinstalar rodas e componentes antes do teste final.",
     "R16.7 mantém o restante do jogo preservado e evolui apenas três cadeias: oficina em pseudo-3D com câmera livre e conjunto inferior didático, visibilidade do veículo do outro usuário no multiplayer e ocorrências de trânsito autônomas que se resolvem e liberam a via sem depender do jogador.",
     "R16.6.2 corrige exclusivamente o fluxo da oficina: elevador ganha liberação do box para o pátio, recuperação de veículos deixados na área, manutenção individual por sistema e teste final antes da entrega.",
     "R16.6 transforma exclusivamente a oficina em barracão alto e aberto no mundo, com entrada física de veículos, elevador automotivo funcional, inspeção visual de componentes e reparo pelo sistema real de dano, preservando os demais sistemas.",
@@ -216,8 +218,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70598,
-  "revisionLabel": "R16.7-oficina-simulador-multiplayer-incidentes",
+  "assetVersion": 70600,
+  "revisionLabel": "R16.7.2-patio-oficina-retirada",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7-workshop-sim-multiplayer-incidents",
+  "build": "705.16.7.2-workshop-yard-delivery",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "d458d31b788178583eee0114c167244c85a576ea8ba631d771c9246f5ff7792f"
+      "sha256Body": "56275cbea8f35f668616939f18e81f8d0df1d4eea4f0db0fa7783f2c9d5e036c"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -182,7 +182,7 @@
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "f6129072d53225f3c9897069dfb2af59dcc8beba6e3148a581bbe2a643ba8900"
+      "sha256Body": "8c03af43cdc3ac56bc531435321bc174ade5182ca2a879449129599612b66230"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -238,7 +238,7 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "e465094facaf3e5ff0c13c8d499942624c09d48606df20e89a4269abd18978d4"
+      "sha256Body": "e98ea679156705224b9c8f09ca29bd28bab3659ccf5f1141672e5042e2644bed"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
