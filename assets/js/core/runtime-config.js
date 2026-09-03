@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.6-workshop-open-lift',
+    build: '705.16.7-workshop-sim-multiplayer-incidents',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
