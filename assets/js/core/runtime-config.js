@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16-otton-connect-progression-r16',
+    build: '705.16.6-workshop-open-lift',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
