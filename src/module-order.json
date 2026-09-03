@@ -21,14 +21,14 @@
       "startLine": 369,
       "endLine": 488,
       "description": "Normalização, merge, tombstones e persistência das construções",
-      "sha256Body": "04668e529ffabfe01472c28fe143e0c0f2c28766ab991c7453ea9b24a47073f5"
+      "sha256Body": "bdba1506500fcee093f1c1520f879b5edab60b615b5598edc1e13dd4bdd7ce01"
     },
     {
       "file": "src/modules/02-state-save-cloud-account.js",
       "startLine": 490,
       "endLine": 756,
       "description": "Estado, save local, IndexedDB, nuvem e conta",
-      "sha256Body": "07f0cfd1580f2365440468b8e0e4d584284c3497461e1f4ad5ac17d60b34aaed"
+      "sha256Body": "67ac8284f0d4d3bb153549a54dfed90929745d77ae4c5a13f21e077eb31d25f4"
     },
     {
       "file": "src/modules/03-ui-modal-install-pwa.js",
@@ -42,7 +42,7 @@
       "startLine": 1043,
       "endLine": 1171,
       "description": "Desafios diários, educação, quiz e coleção",
-      "sha256Body": "2d2e263c3f73a57b1a098e634d10bf68cd70f4a8d47e048dc8625e1fb23bea86"
+      "sha256Body": "0620b60bda20f133b6f380c9d65c5cf8fc5dd3ba909a296ca08606ef00283a2e"
     },
     {
       "file": "src/modules/05-avatar-life-customization.js",
@@ -56,7 +56,7 @@
       "startLine": 0,
       "endLine": 0,
       "description": "Fonte central de verdade do layout mundial V704",
-      "sha256Body": "81e3b8b73e832ab4565444612de32bf6010420db40d0841bdb5271c3beb0c5da"
+      "sha256Body": "9c9237335d852a023e007f174f8c69b9c77188f3f080b3446e2c46731d109115"
     },
     {
       "file": "src/modules/06-missions-profile-hud-inventory-tools.js",
@@ -175,7 +175,7 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "4e0ec9badeae12a9bbf92e55f039b01e73464f50117775f75f937c4b2793c49d"
+      "sha256Body": "a999576ac666d99723c00bd66d53bb929df087f0c7a2e5fc064b6e5a591e6b5f"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
