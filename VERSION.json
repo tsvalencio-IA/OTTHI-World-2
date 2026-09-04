@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.6-wall-car-only",
+  "build": "705.16.7.7-workshop-wall-manual-only",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,7 +42,6 @@
     }
   },
   "changes": [
-    "R16.7.6 restaura integralmente a R16.7.3 e corrige somente as duas posições que colocavam veículos na parede da oficina: o carro vermelho estacionado e o ponto de chegada do reboque.",
     "R16.7.3 corrige o pátio da oficina para vagas externas seguras, adiciona ferro-velho com venda de sucata e peças, materializa a coleção completa da garagem e sincroniza a frota no multiplayer, além de impedir acidentes recorrentes na entrada da oficina e garantir limpeza autônoma das ocorrências.",
     "R16.7.2 substitui a R16.7.1 ainda não publicada: preserva sincronização vertical/desmontagem do elevador e adiciona pátio organizado por status/proprietário, vagas sem empilhamento, retirada dirigindo após teste final e bloqueio de saída para veículos pendentes ou sem conserto.",
     "R16.7.1 mantém o restante do jogo preservado e corrige a oficina/multiplayer: o veículo remoto acompanha a altura real do elevador em tempo quase real e o simulador permite remover/reinstalar rodas e componentes antes do teste final.",
@@ -220,8 +219,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70604,
-  "revisionLabel": "R16.7.6-correcao-somente-carro-parede",
+  "assetVersion": 70605,
+  "revisionLabel": "R16.7.2-patio-oficina-retirada",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

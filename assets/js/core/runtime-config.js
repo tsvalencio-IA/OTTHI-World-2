@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.6-wall-car-only',
+    build: '705.16.7.7-workshop-wall-manual-only',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
