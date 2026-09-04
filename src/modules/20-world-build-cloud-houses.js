@@ -15,6 +15,18 @@
     tio.interiorOnlyHouseId='';tio.group.visible=true;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;delete action.houseId;action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
     return tio;
   }
+  function migrateWorkshopWallParkingR1675(){
+    const parked=state.vehicles?.parked;if(!parked||typeof parked!=='object')return 0;let moved=0,redMigrated=false;
+    const red=parked['workshop-red'],redX=Number(red?.x),redZ=Number(red?.z);
+    if(red&&Number.isFinite(redX)&&Number.isFinite(redZ)&&Math.abs(redX-31)<=1.05&&Math.abs(redZ+13)<=1.05){red.x=33.4;red.z=-13.2;red.heading=-Math.PI/2;moved++;redMigrated=true;}
+    const towSlots=[{x:33.4,z:-18},{x:33.4,z:-21.8},{x:33.4,z:-14.2},{x:37.2,z:-18}];let slotIndex=0;
+    for(const [id,pose] of Object.entries(parked)){
+      if(!pose||redMigrated&&id==='workshop-red')continue;const x=Number(pose.x),z=Number(pose.z);
+      if(!Number.isFinite(x)||!Number.isFinite(z)||Math.abs(x-29)>.95||Math.abs(z+19)>.95)continue;
+      const slot=towSlots[Math.min(slotIndex,towSlots.length-1)];pose.x=slot.x;pose.z=slot.z;pose.heading=Math.PI/2;slotIndex++;moved++;
+    }
+    if(moved&&typeof saveState==='function')saveState(true);return moved;
+  }
   function buildWorld(){
     worldGroup=new THREE.Group();scene.add(worldGroup);
     const worldSize=v704WorldSize(),ground=stableBox(worldSize.w+8,.3,worldSize.d+8,materials.grass,0,-.15,0,worldGroup,0);ground.receiveShadow=false;
@@ -67,10 +79,12 @@
     createNpcMobility(clara,'bike',[[-66,-10],[-55,-10],[-55,0],[-66,0]],2.7);createNpcMobility(rafa,'moto',[[66,-10],[65,-10],[65,0],[76,0]],3.8);createNpcMobility(davi,'car',[[66,-60],[65,-60],[65,-18],[76,-18]],4.1);createNpcMobility(leo,'skate',[[34,58],[52,58],[68,58],[68,45]],3.0);
     createNpcMobility(nino,'bike',[[4,3],[4,10],[-18,10],[-18,0],[4,0]],3.2);createNpcMobility(luna,'skate',[[-22,8],[-34,8],[-34,0],[-12,0],[-12,8]],2.8);createNpcMobility(teo,'moto',[[22,7],[8,7],[8,-12],[35,-12],[35,7]],4.7);createNpcMobility(bia,'bike',[[-10,-10],[-10,0],[-48,0],[-48,-10]],3.4);createNpcMobility(maya,'car',[[68,42],[68,22],[65,0],[88,0],[88,42]],4.5);
 
+    // Corrige apenas os saves das duas posições antigas que atravessavam a parede da oficina.
+    migrateWorkshopWallParkingR1675();
     // Veículos estacionados em vagas livres, nunca sobre quadras/pistas/prédios.
     const homeGarage=P('homeGarage');createToyCar(homeGarage.x+.5,homeGarage.z-2.8,{id:'garage-orange',label:'LEGO • Carro pequeno',primary:0xf28a22,secondary:0x0aa7b8,heading:Math.PI/2,theme:'lego',bodyType:'small',kind:'car'});
     createToyCar(-31,-13,{id:'market-blue',label:'Minecraft / Manycraft • Carro',primary:0x3b8f52,secondary:0x456b9a,heading:Math.PI/2,theme:'minecraft',bodyType:'small',kind:'car'});
-    createToyCar(31,-13,{id:'workshop-red',label:'Mario World • Kart pequeno',primary:0xd83b35,secondary:0x245fc0,heading:-Math.PI/2,theme:'mario-world',bodyType:'small',kind:'car'});
+    createToyCar(33.4,-13.2,{id:'workshop-red',label:'Mario World • Kart pequeno',primary:0xd83b35,secondary:0x245fc0,heading:-Math.PI/2,theme:'mario-world',bodyType:'small',kind:'car'});
     createToyCar(14,35,{id:'home-green',label:'LEGO • Utilitário',primary:0x31a76a,secondary:0xf1c943,heading:Math.PI,theme:'lego',bodyType:'utility',kind:'utility'});
     createToyCar(76,31,{id:'royal-purple',label:'Mario World • Caminhão',primary:0x7d58c9,secondary:0xd83b35,theme:'mario-world',bodyType:'truck',kind:'truck'});
     createToyCar(78,68,{id:'gym-yellow',label:'Minecraft / Manycraft • Utilitário',primary:0x6b7f45,secondary:0xad7d3a,heading:Math.PI,theme:'minecraft',bodyType:'utility',kind:'utility'});

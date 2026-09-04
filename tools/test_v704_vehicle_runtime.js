@@ -24,7 +24,7 @@ const context={
  openModal:(title,html,bind)=>{modalOpened++; if(bind)bind({});},closeModal:()=>{},escapeHtml:String,
  $:()=>({}),
  exitVehicle:()=>{context.player.vehicle=false;},
- worldLayoutPoint:id=>id==='workshop'?{x:22,z:-18}:{x:0,z:0},groundHeightAt:()=>0,
+ worldLayoutPoint:id=>id==='workshop'?{x:22,z:-18}:id==='repairParking'?{x:32,z:-18}:{x:0,z:0},groundHeightAt:()=>0,
  persistParkedVehicle:()=>{towed++;},registerInteractable:item=>{context.world.interactables.push(item);return item;}
 };
 vm.createContext(context);vm.runInContext(source,context,{filename:'36a-vehicle-damage-repair-v704.js'});
@@ -49,6 +49,6 @@ api.damage(vehicle,10,100);
 assert.strictEqual(api.durability(vehicle),80,'batida média precisa reduzir integridade sem destruir');
 context.player.vehicle=true;
 assert.strictEqual(api.tow(vehicle),true,'reboque precisa funcionar');
-assert.strictEqual(vehicle.group.position.x,29);assert.strictEqual(vehicle.group.position.z,-19);assert.strictEqual(towed,1);
+assert.strictEqual(vehicle.group.position.x,33.4);assert.strictEqual(vehicle.group.position.z,-18);assert.strictEqual(vehicle.group.rotation.y,Math.PI/2);assert.strictEqual(towed,1);
 assert(saves>=3,'dano, reparo e reboque precisam persistir');
-console.log(JSON.stringify({passed:true,checks:14,durability:api.durability(vehicle),coins:context.state.profile.coins,modalOpened,legacyImpactCalls,legacyPhysicsCalls,towed,saves}));
+console.log(JSON.stringify({passed:true,checks:15,durability:api.durability(vehicle),coins:context.state.profile.coins,modalOpened,legacyImpactCalls,legacyPhysicsCalls,towed,saves}));
