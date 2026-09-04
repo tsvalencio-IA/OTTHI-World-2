@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.5-workshop-wall-spawn-tow-exit",
+  "build": "705.16.7.6-wall-car-only",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,8 +42,7 @@
     }
   },
   "changes": [
-    "R16.7.5 corrige exclusivamente as três origens do carro preso na oficina: reposiciona o veículo vermelho que nascia atravessando a parede, migra saves gravados nas coordenadas antigas de spawn/reboque, leva novos reboques para uma vaga externa segura e orienta o veículo pronto para a saída aberta ao escolher RETIRAR DO ELEVADOR.",
-    "R16.7.4 mantém o veículo pronto no elevador até o usuário escolher retirá-lo dirigindo, torna o envio ao pátio opcional e confirmado, recupera os carros presos pela disposição anterior e valida cada vaga pelo tamanho real do veículo contra os colliders do mundo.",
+    "R16.7.6 restaura integralmente a R16.7.3 e corrige somente as duas posições que colocavam veículos na parede da oficina: o carro vermelho estacionado e o ponto de chegada do reboque.",
     "R16.7.3 corrige o pátio da oficina para vagas externas seguras, adiciona ferro-velho com venda de sucata e peças, materializa a coleção completa da garagem e sincroniza a frota no multiplayer, além de impedir acidentes recorrentes na entrada da oficina e garantir limpeza autônoma das ocorrências.",
     "R16.7.2 substitui a R16.7.1 ainda não publicada: preserva sincronização vertical/desmontagem do elevador e adiciona pátio organizado por status/proprietário, vagas sem empilhamento, retirada dirigindo após teste final e bloqueio de saída para veículos pendentes ou sem conserto.",
     "R16.7.1 mantém o restante do jogo preservado e corrige a oficina/multiplayer: o veículo remoto acompanha a altura real do elevador em tempo quase real e o simulador permite remover/reinstalar rodas e componentes antes do teste final.",
@@ -197,8 +196,6 @@
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
-    "R16.7.5 é um hotfix geométrico focal sobre a R16.7.4; elevador, pátio, oficina, veículos, Firebase, Android e demais sistemas permanecem preservados.",
-    "R16.7.4 é uma correção focal da oficina sobre o ZIP R16.7.3: nenhum veículo pronto é enviado automaticamente ao pátio e nenhuma vaga externa é usada sem validação geométrica completa.",
     "R16.7 é uma revisão focal: oficina, representação veicular multiplayer e ciclo de acidentes; Android, Firebase root, Otton Connect, casas, esportes, polícia de abordagem e demais sistemas permanecem preservados.",
     "R16.6 altera somente o escopo da oficina e seus testes de regressão: o restante da jogabilidade permanece preservado; homologação visual e física no aparelho continua necessária.",
     "Os exercícios R16 são originais do Otton Connect e usam princípios gerais de progressão, revisão, autonomia e fluência; não reproduzem folhas, textos, nomenclaturas de estágio ou interface proprietária de terceiros.",
@@ -223,8 +220,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70603,
-  "revisionLabel": "R16.7.5-carro-fora-da-parede",
+  "assetVersion": 70604,
+  "revisionLabel": "R16.7.6-correcao-somente-carro-parede",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.5-workshop-wall-spawn-tow-exit',
+    build: '705.16.7.6-wall-car-only',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
