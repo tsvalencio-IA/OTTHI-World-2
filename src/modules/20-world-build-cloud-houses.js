@@ -15,6 +15,13 @@
     tio.interiorOnlyHouseId='';tio.group.visible=true;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;delete action.houseId;action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
     return tio;
   }
+  function createWorkshopMechanic(workshop){
+    if(!workshop)return null;const mechanic=createNPC('mecanico-oficina','Mecânico da Oficina',workshop.x+4.65,workshop.z-2.35,0x176b91,1);mechanic.stationary=true;mechanic.stationaryHeading=Math.PI/2;mechanic.group.rotation.y=Math.PI/2;mechanic.group.position.y=0;mechanic.workshopMechanic=true;mechanic.workshopHome={x:mechanic.group.position.x,z:mechanic.group.position.z,heading:mechanic.stationaryHeading};mechanic.interiorOnlyHouseId='';mechanic.group.visible=true;
+    const limbs=mechanic.limbs||{};if(limbs.leftArm)limbs.leftArm.name='workshop-mechanic-left-arm';if(limbs.rightArm)limbs.rightArm.name='workshop-mechanic-right-arm';if(limbs.leftLeg)limbs.leftLeg.name='workshop-mechanic-left-leg';if(limbs.rightLeg)limbs.rightLeg.name='workshop-mechanic-right-leg';
+    if(limbs.rightArm&&typeof premiumBox==='function'&&typeof premiumCylinder==='function'){const belt=new THREE.Group();belt.name='workshop-mechanic-toolbelt';mechanic.group.add(belt);premiumBox(.72,.13,.48,0x20252b,0,.95,0,belt);premiumBox(.16,.28,.10,0xf2b93b,-.24,.78,.24,belt);premiumBox(.16,.22,.10,0xc9d3dc,.25,.82,.24,belt);const wrench=new THREE.Group();wrench.name='workshop-mechanic-wrench';wrench.visible=false;limbs.rightArm.add(wrench);const handle=premiumCylinder(.045,.52,0xd5dde5,0,-.83,.02,wrench,8);handle.rotation.z=Math.PI/2;premiumBox(.20,.07,.06,0xd5dde5,.25,-.83,.02,wrench);premiumBox(.20,.07,.06,0xd5dde5,-.25,-.83,.02,wrench);}
+    const action=world.interactables.find(it=>it.id==='npc-mecanico-oficina');if(action){action.type='workshop';action.icon='🔧';action.label='Mecânico da Oficina • acompanhar serviço';action.radius=3.4;action.priority=388;action.action=()=>openWorkshopServiceDesk();action.getPos=()=>({x:mechanic.group.position.x,z:mechanic.group.position.z});}
+    world.workshopMechanic=mechanic;return mechanic;
+  }
   function migrateWorkshopWallParkingR1678(){
     const parked=state.vehicles?.parked;if(!parked||typeof parked!=='object')return 0;let moved=0,redMigrated=false;
     const red=parked['workshop-red'],redX=Number(red?.x),redZ=Number(red?.z);
@@ -75,7 +82,7 @@
 
     // NPCs and their routes stay on pavements/roads from the master graph.
     const nino=createNPC('nino','Nino',4,3,0xffd84d,4),luna=createNPC('luna','Luna',-22,8,0xff72b6,4),teo=createNPC('teo','Teo',22,7,0x54c7ff,4),bia=createNPC('bia','Bia',-10,-10,0x8ee15c,3),maya=createNPC('maya','Maya',68,42,0xa66bff,3),clara=createNPC('clara','Clara',-66,-10,0xf0b62d,2),rafa=createNPC('rafa','Rafa',66,-10,0x2f7fd8,2),davi=createNPC('davi','Davi',66,-60,0xe54843,2),leo=createNPC('leo','Leo',34,58,0x38a66a,2);
-    const tioThiago=createTioThiagoWorkshop(workshop);world.tioThiago=tioThiago;
+    const tioThiago=createTioThiagoWorkshop(workshop);world.tioThiago=tioThiago;createWorkshopMechanic(workshop);
     createNpcMobility(clara,'bike',[[-66,-10],[-55,-10],[-55,0],[-66,0]],2.7);createNpcMobility(rafa,'moto',[[66,-10],[65,-10],[65,0],[76,0]],3.8);createNpcMobility(davi,'car',[[66,-60],[65,-60],[65,-18],[76,-18]],4.1);createNpcMobility(leo,'skate',[[34,58],[52,58],[68,58],[68,45]],3.0);
     createNpcMobility(nino,'bike',[[4,3],[4,10],[-18,10],[-18,0],[4,0]],3.2);createNpcMobility(luna,'skate',[[-22,8],[-34,8],[-34,0],[-12,0],[-12,8]],2.8);createNpcMobility(teo,'moto',[[22,7],[8,7],[8,-12],[35,-12],[35,7]],4.7);createNpcMobility(bia,'bike',[[-10,-10],[-10,0],[-48,0],[-48,-10]],3.4);createNpcMobility(maya,'car',[[68,42],[68,22],[65,0],[88,0],[88,42]],4.5);
 
@@ -106,7 +113,7 @@
     registerInteractable({id:'bridge-repair',type:'repair',icon:'🛠',label:'Consertar/inspecionar ponte',x:-12,z:47,radius:3.2,action:repairBridge});createChest('village',8,-5,false);createChest('forest',-82,-50,false);
     if(typeof migrateWorldBuildsToSafeZoneV704==='function')migrateWorldBuildsToSafeZoneV704();reconcileWorldBuilds();updateBridgeVisual();restoreActiveAdventure();
     // O antigo anel aleatório de prédios foi removido: ele invadia quadras e a pista nas bordas.
-    world.layoutAudit=v704StaticWorldAudit();if(!world.layoutAudit.passed)console.error('[OTTHI V704] conflitos no layout mestre',world.layoutAudit.problems);setTimeout(()=>{try{v704RuntimeWorldAudit();}catch(error){console.error('[OTTHI V704] auditoria do mundo real falhou',error);}},0);
+    world.layoutAudit=v704StaticWorldAudit();if(!world.layoutAudit.passed)console.error('[OTTHI V704] conflitos no layout mestre',world.layoutAudit.problems);setTimeout(()=>{try{v704RuntimeWorldAudit();}catch(error){console.error('[OTTHI V704] auditoria do mundo real falhou',error);}},0);setTimeout(()=>{try{if(typeof workshopReorganizeLegacyYardVehicles==='function')workshopReorganizeLegacyYardVehicles();}catch(error){console.error('[OTTHI oficina] falha ao separar veículos salvos no pátio',error);}},160);
   }
   function collectResource(id){
     const resource=world.resources.find(r=>r.id===id);if(!resource||resource.collected)return;

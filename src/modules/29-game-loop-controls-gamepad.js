@@ -51,6 +51,7 @@
       if(buildMode)updateBuildPreview();
       if(fishingSession||fishingVisual?.active)updateFishingVisual(dt);
       if(player.vehicle)updateVehicleFX(dt);
+      if(typeof updateWorkshopMechanicActions==='function')updateWorkshopMechanicActions(dt);
       if(typeof fxParticles!=='undefined'&&fxParticles.length)updateFX(dt);
       if(world.fireballs?.length)updateFireballs(dt);
       if(activeRace)updateRace(dt);if(typeof updateCoopVisuals==='function')updateCoopVisuals(dt);if(typeof updateWorldSportsV704==='function')updateWorldSportsV704(dt);if(typeof updateOttoviasHighway==='function')updateOttoviasHighway(dt);

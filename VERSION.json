@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.8-workshop-yard-os-tools",
+  "build": "705.16.7.9-workshop-mechanic-live-actions",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,7 @@
     }
   },
   "changes": [
+    "R16.7.9 separa novamente todos os veículos do pátio em vagas independentes com folga por tamanho, cria o mecânico 3D da oficina e sincroniza no multiplayer as ações visuais de remover, reinstalar e reparar rodas e peças.",
     "R16.7.8 separa automaticamente veículos empilhados no pátio respeitando o tamanho de carros e caminhões, mostra somente ordens de serviço abertas por padrão, mantém o histórico sob consulta, transforma a manutenção em fluxo visual e restringe a auditoria da thIAguinho Soluções ao GM.",
     "R16.7.4 mantém o veículo pronto no elevador até o usuário escolher retirá-lo dirigindo, torna o envio ao pátio opcional e confirmado, recupera os carros presos pela disposição anterior e valida cada vaga pelo tamanho real do veículo contra os colliders do mundo.",
     "R16.7.3 corrige o pátio da oficina para vagas externas seguras, adiciona ferro-velho com venda de sucata e peças, materializa a coleção completa da garagem e sincroniza a frota no multiplayer, além de impedir acidentes recorrentes na entrada da oficina e garantir limpeza autônoma das ocorrências.",
@@ -222,7 +223,7 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70606,
+  "assetVersion": 70607,
   "revisionLabel": "R16.7.4-retirada-manual-parede",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",

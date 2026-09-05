@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.8-workshop-yard-os-tools',
+    build: '705.16.7.9-workshop-mechanic-live-actions',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',

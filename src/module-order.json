@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.8-workshop-yard-os-tools",
+  "build": "705.16.7.9-workshop-mechanic-live-actions",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "360f65e0a496d8cc065830789d8534a425269c7848ddffca86204e5e609bec13"
+      "sha256Body": "b0eaac5782f7eaf37f14757cd74845dbd88d8f6b1777190bf9fb7241aa8148dc"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "f9093b1bc7e0de4c8e7a74820ab938efc2d7c296a72fe480c353eea5496f55ba"
+      "sha256Body": "ff74a947702b4ec16f98f4d9952c00e9817e509b2d2857b8efdf3f88a31b63bf"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "660063655042eb3e149b549120ed4c255394afa741d30ecb37cf0f6f8b98ec3a"
+      "sha256Body": "945a088da7fd214d81bc2241b3cb1e813c81c169a44e5a8f86c9be85535e9949"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -238,14 +238,14 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "c441dd4b1e6769f9b51227e23cccedd044c358f98ac9a2254d1df3707cf68897"
+      "sha256Body": "eec2d771d1dbc8595a2abdec5c0f6c899304d17ad7bda3d44505dba10fa626b9"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
       "startLine": 5124,
       "endLine": 5238,
       "description": "Loop principal, controles, gamepad e início do jogo",
-      "sha256Body": "0fcddbd32815b1a4b8de67ce55dc2cad0b66fca064f90c7a27d2227c3bd02996"
+      "sha256Body": "fb926c25da64d887fe692ff4327eec451ce536a035064cf8813808205e6defdb"
     },
     {
       "file": "src/modules/30-pause-tests-public-api-bootstrap.js",
