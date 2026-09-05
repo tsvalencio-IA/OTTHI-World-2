@@ -15,7 +15,7 @@
     tio.interiorOnlyHouseId='';tio.group.visible=true;const action=world.interactables.find(it=>it.id==='npc-tio-thiago');if(action){action.type='workshop';action.icon='👨‍🔧';action.label='Tio Thiago • Oficina';action.radius=3.6;action.priority=390;delete action.houseId;action.getPos=()=>({x:tio.group.position.x,z:tio.group.position.z});}
     return tio;
   }
-  function migrateWorkshopWallParkingR1677(){
+  function migrateWorkshopWallParkingR1678(){
     const parked=state.vehicles?.parked;if(!parked||typeof parked!=='object')return 0;let moved=0,redMigrated=false;
     const red=parked['workshop-red'],redX=Number(red?.x),redZ=Number(red?.z);
     if(red&&Number.isFinite(redX)&&Number.isFinite(redZ)&&Math.abs(redX-31)<=1.05&&Math.abs(redZ+13)<=1.05){red.x=33.4;red.z=-13.2;red.heading=-Math.PI/2;moved++;redMigrated=true;}
@@ -79,8 +79,8 @@
     createNpcMobility(clara,'bike',[[-66,-10],[-55,-10],[-55,0],[-66,0]],2.7);createNpcMobility(rafa,'moto',[[66,-10],[65,-10],[65,0],[76,0]],3.8);createNpcMobility(davi,'car',[[66,-60],[65,-60],[65,-18],[76,-18]],4.1);createNpcMobility(leo,'skate',[[34,58],[52,58],[68,58],[68,45]],3.0);
     createNpcMobility(nino,'bike',[[4,3],[4,10],[-18,10],[-18,0],[4,0]],3.2);createNpcMobility(luna,'skate',[[-22,8],[-34,8],[-34,0],[-12,0],[-12,8]],2.8);createNpcMobility(teo,'moto',[[22,7],[8,7],[8,-12],[35,-12],[35,7]],4.7);createNpcMobility(bia,'bike',[[-10,-10],[-10,0],[-48,0],[-48,-10]],3.4);createNpcMobility(maya,'car',[[68,42],[68,22],[65,0],[88,0],[88,42]],4.5);
 
-    // Corrige somente saves gravados nas duas posições que atravessavam a parede da oficina.
-    migrateWorkshopWallParkingR1677();
+    // Recupera somente os saves antigos gravados dentro da parede da oficina.
+    migrateWorkshopWallParkingR1678();
     // Veículos estacionados em vagas livres, nunca sobre quadras/pistas/prédios.
     const homeGarage=P('homeGarage');createToyCar(homeGarage.x+.5,homeGarage.z-2.8,{id:'garage-orange',label:'LEGO • Carro pequeno',primary:0xf28a22,secondary:0x0aa7b8,heading:Math.PI/2,theme:'lego',bodyType:'small',kind:'car'});
     createToyCar(-31,-13,{id:'market-blue',label:'Minecraft / Manycraft • Carro',primary:0x3b8f52,secondary:0x456b9a,heading:Math.PI/2,theme:'minecraft',bodyType:'small',kind:'car'});

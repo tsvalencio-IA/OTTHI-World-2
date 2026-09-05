@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.7-workshop-wall-manual-only",
+  "build": "705.16.7.8-workshop-yard-os-tools",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "d54ed3fc09ab46256a25816fe06bfb77baffc431b7f4b435cb5bf47aa30c1cf1"
+      "sha256Body": "360f65e0a496d8cc065830789d8534a425269c7848ddffca86204e5e609bec13"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "e0241dee84b4444b150ee96d31503a9d84643357c6241979fa71cda4426050ad"
+      "sha256Body": "f9093b1bc7e0de4c8e7a74820ab938efc2d7c296a72fe480c353eea5496f55ba"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "72b34ad9fa8f83cec9f4819bd90d095f52e1dfe920f45add77154668985a2443"
+      "sha256Body": "660063655042eb3e149b549120ed4c255394afa741d30ecb37cf0f6f8b98ec3a"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -294,7 +294,7 @@
       "startLine": 0,
       "endLine": 0,
       "description": "Dano, quebra, reboque e reparo real de veículos V704",
-      "sha256Body": "0aaca5874442ec51455e611816d30552fc22b1623bf45e38892c9d4fa6845a0c"
+      "sha256Body": "a5089c778cb96bb4858fc09e38b90b43bea5bdc350376ba7008ed3089c052a60"
     },
     {
       "file": "src/modules/37-hero-platform-gameplay.js",
