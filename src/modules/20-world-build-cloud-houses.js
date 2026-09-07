@@ -25,12 +25,14 @@
   function migrateWorkshopWallParkingR1678(){
     const parked=state.vehicles?.parked;if(!parked||typeof parked!=='object')return 0;let moved=0,redMigrated=false;
     const red=parked['workshop-red'],redX=Number(red?.x),redZ=Number(red?.z);
-    if(red&&Number.isFinite(redX)&&Number.isFinite(redZ)&&Math.abs(redX-31)<=1.05&&Math.abs(redZ+13)<=1.05){red.x=33.4;red.z=-13.2;red.heading=-Math.PI/2;moved++;redMigrated=true;}
-    const towSlots=[{x:33.4,z:-18},{x:33.4,z:-21.8},{x:33.4,z:-14.2},{x:37.2,z:-18}];let slotIndex=0;
+    if(red&&Number.isFinite(redX)&&Number.isFinite(redZ)&&Math.abs(redX-31)<=1.05&&Math.abs(redZ+13)<=1.05){red.x=33.4;red.z=-13.2;red.heading=-Math.PI/2;const record=state.vehicles?.workshopComponents?.['workshop-red'];if(record)record.yardStatus=record.yardStatus||'pending';moved++;redMigrated=true;}
+    const towSlot=index=>{const row=index%2,col=Math.floor(index/2);return{x:33.4+col*4.15,z:-19.9+row*3.8};};let slotIndex=0;
     for(const [id,pose] of Object.entries(parked)){
       if(!pose||redMigrated&&id==='workshop-red')continue;const x=Number(pose.x),z=Number(pose.z);
       if(!Number.isFinite(x)||!Number.isFinite(z)||Math.abs(x-29)>.95||Math.abs(z+19)>.95)continue;
-      const slot=towSlots[Math.min(slotIndex,towSlots.length-1)];pose.x=slot.x;pose.z=slot.z;pose.heading=Math.PI/2;slotIndex++;moved++;
+      // Cada registro legado recebe uma posição temporária própria. Antes, o índice
+      // parava na quarta vaga e todos os veículos seguintes nasciam sobrepostos nela.
+      const slot=towSlot(slotIndex);pose.x=slot.x;pose.z=slot.z;pose.heading=Math.PI/2;const record=state.vehicles?.workshopComponents?.[id];if(record)record.yardStatus=record.yardStatus||'pending';slotIndex++;moved++;
     }
     if(moved&&typeof saveState==='function')saveState(true);return moved;
   }

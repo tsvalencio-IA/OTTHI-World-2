@@ -153,6 +153,7 @@
     const hitBox=c=>probes.some(([ox,oz,pad])=>Math.abs(x+ox-c.x)<=c.w/2+pad&&Math.abs(z+oz-c.z)<=c.d/2+pad);
     if(world.colliders.some(c=>!c.disabled&&!(c.houseId&&currentHouse&&c.houseId===currentHouse.id)&&hitBox(c)))return true;
     for(const v of world.vehicles||[]){if(v===active||!v.group?.visible)continue;if(Math.hypot(x-v.group.position.x,z-v.group.position.z)<2.05)return true;}
+    for(const ghost of world.ghosts?.values?.()||[]){const target=ghost?.userData?.target;if(!target?.vehicle||target.vehicleRole==='passenger'||ghost.userData?.carVisual?.visible===false)continue;if(Math.hypot(x-ghost.position.x,z-ghost.position.z)<2.15)return true;}
     for(const actor of trafficActorList()){if(actor.ref===active)continue;if(Math.hypot(x-actor.group.position.x,z-actor.group.position.z)<(actor.radius||1.5)+1.0)return true;}
     return false;
   }
