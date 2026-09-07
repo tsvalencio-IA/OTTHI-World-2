@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.10-workshop-shared-mechanic-right-lane",
+  "build": "705.16.7.11-shared-world-authority-yard",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "0da69ba6af79b65efc0754084e49eac345ee844d58f35b6fa270655988e6fee2"
+      "sha256Body": "cf4db930cc8d1fe4e738b27fc9a80fa8f0357ecba670cde9d7dd523cfc2b62d2"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -133,7 +133,7 @@
       "startLine": 0,
       "endLine": 0,
       "description": "Rodovia OTTOVIAS integrada: circuito, biomas, pedágios, Michelle e ronda guiada",
-      "sha256Body": "4de7dc469d54794fed4e2b9b996eb0aea0af6f87c2da789add552decc01ab24e"
+      "sha256Body": "fd0756e906c7a2e55a6f0291acc513d6606031fdf2f815f5a95eee356edf573e"
     },
     {
       "file": "src/modules/15-transit-bus-metro.js",
@@ -175,14 +175,14 @@
       "startLine": 3805,
       "endLine": 3948,
       "description": "Construção do mundo, recursos, baús, casas em nuvem e interiores",
-      "sha256Body": "ff74a947702b4ec16f98f4d9952c00e9817e509b2d2857b8efdf3f88a31b63bf"
+      "sha256Body": "ba1627991c3712d36a99a640bcd95814930d4fb4a8fd4c0b8f35f6c48cb27bef"
     },
     {
       "file": "src/modules/21-interactions-shop-social-races.js",
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "f4a2c178ae6fbcdd8b15dfcdbe9159ed37c2d53cb770605fd00c74e86d9bc04b"
+      "sha256Body": "6ae3fe16506463853a5c64e1fca7286072102bf5c6f3a9e8d671a8a2404626ec"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -217,14 +217,14 @@
       "startLine": 4495,
       "endLine": 4635,
       "description": "Three.js, qualidade, viewport, resize, posição segura e colisões",
-      "sha256Body": "52c1367164d9a06ee55ba90bfea310f9f34ae20cb5636fa03234472f3f988503"
+      "sha256Body": "3bca63f0d8bbcfa1285582626eab9d529e0a1287f0b95a69b67ba92c69462214"
     },
     {
       "file": "src/modules/26-input-player-physics.js",
       "startLine": 4637,
       "endLine": 4765,
       "description": "Entrada, corrida, pulo, física do jogador/veículo e animação",
-      "sha256Body": "1df9ab8c5a1b973149f2e46f84b9031177d4404f2df238f3976dbcfbef49ec30"
+      "sha256Body": "bfc32278e9f9d27ce86dd17e4ff138d0d1c588fed3ed01d7c78cd27667dcd0a5"
     },
     {
       "file": "src/modules/27-npc-enemies-combat-camera-action.js",
@@ -238,14 +238,21 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "4b32f0943217722ec8a9dc33dfadf4feb85e359104d5ebf1ed370fff901a0451"
+      "sha256Body": "ba074dbb325c41bcff304c431296374e44a0e356fc0a48d57d3d84eb2a14612e"
+    },
+    {
+      "file": "src/modules/28a-shared-world-multiplayer.js",
+      "startLine": 0,
+      "endLine": 0,
+      "description": "Autoridade compartilhada de NPCs e trânsito, oficina global e estado visual multiplayer",
+      "sha256Body": "5f49f2b3bb45f01a6f411422feff00a2c9bf2dc28ff1342f5d27584a8a285039"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
       "startLine": 5124,
       "endLine": 5238,
       "description": "Loop principal, controles, gamepad e início do jogo",
-      "sha256Body": "fb926c25da64d887fe692ff4327eec451ce536a035064cf8813808205e6defdb"
+      "sha256Body": "a299e28f11f3d4f604ba370a70a0bdb954db3a1785ab246efeb4c34511d7d6b8"
     },
     {
       "file": "src/modules/30-pause-tests-public-api-bootstrap.js",
