@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.9-workshop-mechanic-live-actions',
+    build: '705.16.7.10-workshop-shared-mechanic-right-lane',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',

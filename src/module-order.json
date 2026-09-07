@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.9-workshop-mechanic-live-actions",
+  "build": "705.16.7.10-workshop-shared-mechanic-right-lane",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "b0eaac5782f7eaf37f14757cd74845dbd88d8f6b1777190bf9fb7241aa8148dc"
+      "sha256Body": "0da69ba6af79b65efc0754084e49eac345ee844d58f35b6fa270655988e6fee2"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -70,7 +70,7 @@
       "startLine": 1456,
       "endLine": 1604,
       "description": "Rotas, trânsito, grafo, GPS e minimapa",
-      "sha256Body": "0ad525439d6a3ac296870f6a25e9776d5bbfed7ad081a26741a3700bb2611d7f"
+      "sha256Body": "b0636b754e7ba3e23321e7c89a694ed3f21fef3ba07ed8213742632240bea093"
     },
     {
       "file": "src/modules/08-map-parent-settings.js",
@@ -112,7 +112,7 @@
       "startLine": 2743,
       "endLine": 2991,
       "description": "Casas, interiores, NPCs, inimigos, cristais, veículos e academia",
-      "sha256Body": "9891c9cdca557f64b80272df7ac261a85e15d3104b299967280a75505c9bab36"
+      "sha256Body": "eb71c106c01faafdcc47b88db38e4ef163ca9293e7ad6bc4e33c183adb4f70a8"
     },
     {
       "file": "src/modules/13a-sports-kart-v705.js",
@@ -182,7 +182,7 @@
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "945a088da7fd214d81bc2241b3cb1e813c81c169a44e5a8f86c9be85535e9949"
+      "sha256Body": "f4a2c178ae6fbcdd8b15dfcdbe9159ed37c2d53cb770605fd00c74e86d9bc04b"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -238,7 +238,7 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "eec2d771d1dbc8595a2abdec5c0f6c899304d17ad7bda3d44505dba10fa626b9"
+      "sha256Body": "4b32f0943217722ec8a9dc33dfadf4feb85e359104d5ebf1ed370fff901a0451"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",

@@ -1,28 +1,28 @@
-const REVISION = 'add003506e174269';
-const CACHE = `otthi-v70607-${REVISION}`;
+const REVISION = '00fb4999b8b1c79d';
+const CACHE = `otthi-v70608-${REVISION}`;
 const CACHE_PREFIXES = ['otthi-','otthi-game-web-','otthos-life-world-main-'];
-const BUILD = '705.16.7.9-workshop-mechanic-live-actions';
+const BUILD = '705.16.7.10-workshop-shared-mechanic-right-lane';
 const VERSION = '705';
-const RELEASE_MANIFEST = './release-manifest.json?v=70607';
+const RELEASE_MANIFEST = './release-manifest.json?v=70608';
 
 const REQUIRED_SHELL = [
-  './index.html?v=70607',
-  './style.css?v=70607',
-  './assets/vendor/three-r128.min.js?v=70607',
-  './assets/js/core/runtime-config.js?v=70607',
-  './assets/js/core/safe-pointer.js?v=70607',
-  './assets/js/core/viewport-manager.js?v=70607',
-  './assets/js/save-db.js?v=70607',
-  './firebase-config.js?v=70607',
-  './assets/js/game-account.js?v=70607',
-  './assets/js/multiplayer-rtdb.js?v=70607',
-  './app.js?v=70607',
-  './assets/js/ui/shared-modal.js?v=70607',
-  './assets/js/core/performance-guardian.js?v=70607',
-  './assets/js/multiplayer/room-manager.js?v=70607',
-  './assets/js/education/adaptive-learning.js?v=70607',
-  './assets/js/safety/child-safety.js?v=70607',
-  './manifest.webmanifest?v=70607'
+  './index.html?v=70608',
+  './style.css?v=70608',
+  './assets/vendor/three-r128.min.js?v=70608',
+  './assets/js/core/runtime-config.js?v=70608',
+  './assets/js/core/safe-pointer.js?v=70608',
+  './assets/js/core/viewport-manager.js?v=70608',
+  './assets/js/save-db.js?v=70608',
+  './firebase-config.js?v=70608',
+  './assets/js/game-account.js?v=70608',
+  './assets/js/multiplayer-rtdb.js?v=70608',
+  './app.js?v=70608',
+  './assets/js/ui/shared-modal.js?v=70608',
+  './assets/js/core/performance-guardian.js?v=70608',
+  './assets/js/multiplayer/room-manager.js?v=70608',
+  './assets/js/education/adaptive-learning.js?v=70608',
+  './assets/js/safety/child-safety.js?v=70608',
+  './manifest.webmanifest?v=70608'
 ];
 
 const OPTIONAL_ASSETS = [
@@ -180,7 +180,7 @@ async function activeReleaseManifest(cache) {
 
 async function cachedFallback(cache, request, navigation) {
   if (navigation) {
-    return await cache.match('./index.html?v=70607') || await cache.match('./') || null;
+    return await cache.match('./index.html?v=70608') || await cache.match('./') || null;
   }
   return await cache.match(request, { ignoreSearch:false })
     || await cache.match(new URL(request.url).pathname, { ignoreSearch:true })

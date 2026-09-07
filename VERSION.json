@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.9-workshop-mechanic-live-actions",
+  "build": "705.16.7.10-workshop-shared-mechanic-right-lane",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,7 @@
     }
   },
   "changes": [
+    "R16.7.10 sincroniza a linha do tempo completa do mecânico entre jogadores, oferece acompanhamento no mundo aberto ou em câmera 360°, corrige o lado físico das rodas e desloca o trânsito comum para a faixa direita.",
     "R16.7.9 separa novamente todos os veículos do pátio em vagas independentes com folga por tamanho, cria o mecânico 3D da oficina e sincroniza no multiplayer as ações visuais de remover, reinstalar e reparar rodas e peças.",
     "R16.7.8 separa automaticamente veículos empilhados no pátio respeitando o tamanho de carros e caminhões, mostra somente ordens de serviço abertas por padrão, mantém o histórico sob consulta, transforma a manutenção em fluxo visual e restringe a auditoria da thIAguinho Soluções ao GM.",
     "R16.7.4 mantém o veículo pronto no elevador até o usuário escolher retirá-lo dirigindo, torna o envio ao pátio opcional e confirmado, recupera os carros presos pela disposição anterior e valida cada vaga pelo tamanho real do veículo contra os colliders do mundo.",
@@ -198,6 +199,7 @@
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
+    "R16.7.10 altera somente a execução visual da oficina compartilhada, a representação do veículo remoto e a posição lateral das rotas de trânsito; pátio, ferro-velho, ordens de serviço, mapa, missões, contas e regras Firebase permanecem preservados.",
     "R16.7.4 é uma correção focal da oficina sobre o ZIP R16.7.3: nenhum veículo pronto é enviado automaticamente ao pátio e nenhuma vaga externa é usada sem validação geométrica completa.",
     "R16.7 é uma revisão focal: oficina, representação veicular multiplayer e ciclo de acidentes; Android, Firebase root, Otton Connect, casas, esportes, polícia de abordagem e demais sistemas permanecem preservados.",
     "R16.6 altera somente o escopo da oficina e seus testes de regressão: o restante da jogabilidade permanece preservado; homologação visual e física no aparelho continua necessária.",
@@ -223,8 +225,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70607,
-  "revisionLabel": "R16.7.4-retirada-manual-parede",
+  "assetVersion": 70608,
+  "revisionLabel": "R16.7.10-mecanico-compartilhado-mao-direita",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

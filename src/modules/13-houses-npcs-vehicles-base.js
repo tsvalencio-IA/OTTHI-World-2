@@ -54,6 +54,27 @@
     world.houses.push(house);return house;
   }
 
+  function createWorkshopServicePartVisual(id,parent=worldGroup){
+    const group=new THREE.Group(),material=new THREE.MeshStandardMaterial({color:0x6bd98a,emissive:0x173d24,emissiveIntensity:.34,roughness:.48,metalness:.18}),metal=renderMat(0x66727c,{roughness:.38,metalness:.48}),dark=renderMat(0x20262d,{roughness:.62,metalness:.22}),red=renderMat(0xd94a42,{roughness:.50}),blue=renderMat(0x2d73a8,{roughness:.46});parent?.add?.(group);group.name=`workshop-service-part-${id}`;
+    const b=(w,h,d,x,y,z,mat=material)=>premiumBox(w,h,d,mat,x,y,z,group,0x15222b),c=(radius,depth,x,y,z,mat=metal,segments=12)=>{const mesh=cylinder(radius,depth,mat,x,y,z,group,segments);return mesh;};
+    if(id==='engine'){
+      b(1.16,.46,.88,0,.10,0);b(.88,.24,.64,0,.44,0);b(.22,.20,.22,-.30,.66,-.08,metal);b(.22,.20,.22,0,.66,-.08,metal);b(.22,.20,.22,.30,.66,-.08,metal);c(.16,.56,-.62,.18,0,dark);c(.12,.42,.62,.18,0,metal);
+    }else if(id==='brakes'){
+      for(const x of[-.48,.48]){const disc=c(.30,.12,x,.12,0,metal,16);disc.rotation.z=Math.PI/2;b(.16,.34,.22,x+(x<0?-.16:.16),.14,.08,red);b(.08,.20,.16,x,.14,0,dark);}
+    }else if(id==='suspension'){
+      for(const x of[-.52,.52]){const strut=c(.09,.82,x,.34,0,metal,10);b(.22,.12,.22,x,.74,0,dark);b(.34,.10,.54,x,.05,0,material);for(let i=0;i<3;i++){const spring=c(.16,.035,x,.24+i*.15,0,material,10);spring.scale.z=.62;}}
+    }else if(id==='steering'){
+      b(1.42,.16,.22,0,.18,0,material);b(.42,.10,.12,-.88,.18,0,metal);b(.42,.10,.12,.88,.18,0,metal);c(.17,.28,0,.18,0,dark,12);b(.12,.46,.12,.18,.43,-.02,metal);b(.24,.10,.20,-1.08,.18,0,dark);b(.24,.10,.20,1.08,.18,0,dark);
+    }else if(id==='electrical'){
+      b(.78,.48,.56,0,.24,0,dark);b(.70,.08,.50,0,.52,0,material);c(.075,.14,-.22,.62,0,red,10);c(.075,.14,.22,.62,0,dark,10);b(.18,.10,.12,-.22,.69,0,red);b(.18,.10,.12,.22,.69,0,metal);
+    }else if(id==='cooling'){
+      b(1.20,.72,.16,0,.36,0,metal);for(const x of[-.42,-.21,0,.21,.42])b(.055,.58,.18,x,.36,0,material);b(.16,.78,.24,-.68,.38,0,dark);b(.16,.78,.24,.68,.38,0,dark);const hose=c(.10,.72,.30,.54,.22,blue,12);hose.rotation.z=Math.PI/2;
+    }else{
+      b(.70,.30,.46,0,.18,0);b(.48,.16,.34,0,.42,0,metal);b(.12,.12,.58,-.24,.20,0,dark);b(.12,.12,.58,.24,.20,0,dark);
+    }
+    group.userData.workshopServicePartId=String(id||'');return{group,material};
+  }
+
   function createHouse(config) {
     const {id,name,x,z,color,roofColor,price=0,publicBuilding=false}=config;
     if(id==='workshop')return createWorkshopShed({...config,publicBuilding:true});
@@ -121,15 +142,10 @@
       // Marcadores físicos de componentes. Só ficam visíveis quando o carro estiver erguido.
       const markerDefs=[['engine','MOTOR',0,3.25,-1.72],['brakes','FREIOS',-1.62,2.78,-.55],['suspension','SUSPENSÃO',1.62,2.78,-.55],['steering','DIREÇÃO',-1.45,2.78,1.12],['electrical','ELÉTRICA',1.45,2.78,1.12],['cooling','ARREFEC.',0,3.35,1.52]],markerMap={},markers=new THREE.Group();markers.position.set(liftX,0,liftZ);decor.add(markers);
       for(const [pid,label,mx,my,mz] of markerDefs){const mg=new THREE.Group();mg.position.set(mx,my,mz);const dot=new THREE.Mesh(new THREE.SphereGeometry(.15,10,8),new THREE.MeshStandardMaterial({color:0x6bd98a,emissive:0x173d24,emissiveIntensity:.55,roughness:.35}));mg.add(dot);const tag=new THREE.Mesh(new THREE.PlaneGeometry(1.15,.30),new THREE.MeshStandardMaterial({map:signTexture(label,'#161b20','#ffffff'),roughness:.48,side:THREE.DoubleSide}));tag.position.set(0,.32,0);mg.add(tag);mg.visible=false;markers.add(mg);markerMap[pid]={group:mg,dot};}
-      // Conjunto inferior didático em pseudo-3D. Ele acompanha a plataforma e só aparece com o elevador erguido.
+      // Componentes automotivos reconhecíveis. Acompanham a plataforma e só aparecem com o elevador erguido.
       const underbody=new THREE.Group(),underbodyMap={};underbody.position.set(0,.56,0);underbody.visible=false;liftPlatform.add(underbody);
-      const workshopPart=(id,blocks)=>{const part=new THREE.Group(),material=new THREE.MeshStandardMaterial({color:0x6bd98a,emissive:0x173d24,emissiveIntensity:.34,roughness:.48,metalness:.18});for(const [w,h,d,x,y,z] of blocks)premiumBox(w,h,d,material,x,y,z,part,0x15222b);underbody.add(part);underbodyMap[id]={group:part,material};return part;};
-      workshopPart('engine',[[1.18,.42,1.02,0,.10,-.92],[.82,.22,.58,0,.40,-.92]]);
-      workshopPart('brakes',[[.34,.34,.18,-1.18,.10,-1.12],[.34,.34,.18,1.18,.10,-1.12],[.34,.34,.18,-1.18,.10,1.12],[.34,.34,.18,1.18,.10,1.12]]);
-      workshopPart('suspension',[[2.65,.15,.16,0,.03,-1.15],[2.65,.15,.16,0,.03,1.15],[.16,.18,2.35,-1.15,.04,0],[.16,.18,2.35,1.15,.04,0]]);
-      workshopPart('steering',[[2.12,.16,.22,0,.28,-.48],[.16,.18,.88,-.82,.28,-.48],[.16,.18,.88,.82,.28,-.48]]);
-      workshopPart('electrical',[[.72,.34,.54,.72,.38,-.82],[.22,.16,1.48,.72,.24,.08]]);
-      workshopPart('cooling',[[1.42,.30,.24,0,.33,-1.52],[.18,.18,.96,0,.24,-1.10]]);
+      const workshopPart=(id,x,y,z,scale=1)=>{const part=createWorkshopServicePartVisual(id,underbody);part.group.position.set(x,y,z);part.group.scale.setScalar(scale);underbodyMap[id]=part;return part.group;};
+      workshopPart('engine',0,.08,-.82,.88);workshopPart('brakes',0,.05,.88,.82);workshopPart('suspension',0,.03,.18,.88);workshopPart('steering',0,.16,-.18,.86);workshopPart('electrical',.78,.22,-.72,.78);workshopPart('cooling',-.58,.18,-1.38,.72);
       // Bancadas e ferramental ao fundo.
       for(const x of[-.8,1.1,3.0]){premiumBox(1.55,1.05,.60,graphite2,x,.60,-5.20,decor);for(const y of[.38,.62,.86])premiumBox(1.34,.045,.64,steel,x,y,-5.18,decor);}
       const services=new THREE.Mesh(new THREE.PlaneGeometry(4.2,1.20),new THREE.MeshStandardMaterial({map:signTexture('MECÂNICA • ELÉTRICA • SCANNER • INJEÇÃO','#171c22','#b7ed20'),roughness:.50,side:THREE.DoubleSide}));services.position.set(.45,3.35,-5.72);decor.add(services);
