@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.14-multiplayer-world-fidelity-rides",
+  "build": "705.16.7.15-passenger-frame-smoothing",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,8 @@
     }
   },
   "changes": [
+    "R16.7.15 suaviza localmente, a cada frame, a pose do veículo hospedeiro para o passageiro e usa previsão curta de movimento, eliminando os saltos causados pelos pacotes discretos do Firebase sem aumentar a frequência de rede.",
+    "R16.7.15 faz o passageiro seguir exatamente o assento do veículo interpolado, preservando offsets próprios de moto, carro, utilitário e caminhão e sem alterar Firebase Rules ou consumo de publicação.",
     "R16.7.14 sincroniza a identidade visual real do avatar multiplayer com as famílias LEGO, Minecraft/Manycraft, Playmobil, Mario e Luigi, reutilizando as mesmas proporções, pivôs, rosto, cabelo, acessórios e uniforme efetivo do personagem local.",
     "R16.7.14 transmite e reconstrói o veículo remoto pelo mesmo construtor visual do veículo local, incluindo categoria real (moto, carro, utilitário ou caminhão), tema, carroceria, capô, teto, rodas, traseira, luzes, cores, durabilidade e visuais de serviço.",
     "R16.7.14 completa o multiassento em dois sentidos: o motorista pode convidar e o jogador a pé pode pedir para andar junto; motorista, passageiro e garupa usam posições próprias por categoria e compartilham o mesmo veículo real.",
@@ -216,6 +218,7 @@
   },
   "release": "705.7-r16.7.14-multiplayer-fidelity-rides-r11-lineage",
   "notes": [
+    "R16.7.15 é focal na experiência do passageiro: não aumenta a frequência de publicação no Firebase, não altera Rules, aparência, mapa, oficina, trânsito, missões ou persistência.",
     "R16.7.14 é focal no contrato e na reconstrução visual multiplayer: não altera CSS, mapa, missões, oficina, pátio, ferro-velho, Firebase Rules, autenticação ou formato persistente dos saves.",
     "Para fidelidade visual completa entre aparelhos, todos os clientes da mesma sala devem carregar a mesma R16.7.14; o assetVersion 70612 força renovação do cache web/PWA.",
     "A homologação multiplayer em dois aparelhos físicos permanece separada: os testes locais validam estrutura, contrato, renderização compartilhada e regressões, mas não substituem o teste final publicado em dois dispositivos.",
@@ -251,8 +254,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70612,
-  "revisionLabel": "R16.7.14-fidelidade-multiplayer-veiculos-carona",
+  "assetVersion": 70613,
+  "revisionLabel": "R16.7.15-suavizacao-carona-frame-a-frame",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",
