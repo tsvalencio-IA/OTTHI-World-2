@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.14-multiplayer-world-fidelity-rides',
+    build: '705.16.7.15-passenger-frame-smoothing',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',
