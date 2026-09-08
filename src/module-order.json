@@ -238,7 +238,7 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "19b6796571d0378050bc4106f10c357ef762df24f413e28110e1f6d3f305d759"
+      "sha256Body": "f9842f462001b33f62719ca20fb692b93ec346fa1fc14fcaf9ccc6b82fa4f4de"
     },
     {
       "file": "src/modules/28a-shared-world-multiplayer.js",

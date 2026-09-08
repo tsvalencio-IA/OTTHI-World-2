@@ -1,4 +1,4 @@
-const REVISION = '8ef3d7aaad5e874b';
+const REVISION = 'c4fb3367545d5afb';
 const CACHE = `otthi-v70612-${REVISION}`;
 const CACHE_PREFIXES = ['otthi-','otthi-game-web-','otthos-life-world-main-'];
 const BUILD = '705.16.7.14-multiplayer-world-fidelity-rides';
