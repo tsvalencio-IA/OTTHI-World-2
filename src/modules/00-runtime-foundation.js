@@ -11,7 +11,7 @@
   'use strict';
 
   const OTTHI_GAME_LIVE_BASE = new URL('./', window.location.href).href;
-  const OTTHI_GAME_WEB_BUILD = '705.16.7.14-multiplayer-world-fidelity-rides';
+  const OTTHI_GAME_WEB_BUILD = '705.16.7.15-passenger-frame-smoothing';
   window.OTTHI_GAME_VERSION = 705;
   window.OTTHI_GAME_BUILD = OTTHI_GAME_WEB_BUILD;
   const OTTHI_INDEX_BUILD = document.documentElement?.dataset?.otthiBuild || '';
