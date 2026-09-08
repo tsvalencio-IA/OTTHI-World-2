@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.14-multiplayer-world-fidelity-rides",
+  "build": "705.16.7.15-passenger-frame-smoothing",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "b4f319dbc142eb1add0a8954180e32543695592fd26b5a22981d48f91bb93532"
+      "sha256Body": "b2793cc41ad280e5a3500c397a05242b51d59fe01a828d3672c2031c8b2a315a"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -196,7 +196,7 @@
       "startLine": 4245,
       "endLine": 4381,
       "description": "Poeira, som, efeitos, controles, direção, passageiros e ponte",
-      "sha256Body": "d5e24e1c1b8618cf029392bce995ece2e0a435f80c8a5e5949614ee40b4887ef"
+      "sha256Body": "32b0c739459c91666774f4097d6abdacd831dd28cfb5a1790f648cf18dd59b49"
     },
     {
       "file": "src/modules/24-construction-system.js",
@@ -224,7 +224,7 @@
       "startLine": 4637,
       "endLine": 4765,
       "description": "Entrada, corrida, pulo, física do jogador/veículo e animação",
-      "sha256Body": "cc4332542519df3c19615e6e30ac2023d2c437d046b6ea248ab8355f5f684a59"
+      "sha256Body": "3e51b17ffabe22ba3a87058e78b99ae47c84d71b4e8a5a465a90b3d6295b3cbd"
     },
     {
       "file": "src/modules/27-npc-enemies-combat-camera-action.js",
@@ -238,14 +238,14 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "f9842f462001b33f62719ca20fb692b93ec346fa1fc14fcaf9ccc6b82fa4f4de"
+      "sha256Body": "560643cc7f534a290b070f51a99575264e5a46cc5127ccb5cd398828c843cb11"
     },
     {
       "file": "src/modules/28a-shared-world-multiplayer.js",
       "startLine": 0,
       "endLine": 0,
       "description": "Autoridade compartilhada de NPCs e trânsito, oficina global e estado visual multiplayer",
-      "sha256Body": "d5fd36fd5740a1315a99db938e63ab948fb9d04dfe03c8baa3383fa79df0312e"
+      "sha256Body": "77373a36ca111499dc589835a949e451063767bdcd43b24444c70266ebf18530"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
