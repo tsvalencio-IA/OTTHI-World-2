@@ -11,7 +11,7 @@
   'use strict';
 
   const OTTHI_GAME_LIVE_BASE = new URL('./', window.location.href).href;
-  const OTTHI_GAME_WEB_BUILD = '705.16.7.12-live-vehicles-brazilian-lanes-multiseat';
+  const OTTHI_GAME_WEB_BUILD = '705.16.7.13-vehicle-parking-recovery';
   window.OTTHI_GAME_VERSION = 705;
   window.OTTHI_GAME_BUILD = OTTHI_GAME_WEB_BUILD;
   const OTTHI_INDEX_BUILD = document.documentElement?.dataset?.otthiBuild || '';

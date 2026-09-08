@@ -3,7 +3,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const source=fs.readFileSync('src/modules/36a-vehicle-damage-repair-v704.js','utf8').split('// @otthi-module-body',2)[1];
 const vehicle={id:'test-car',label:'Carro de teste',kind:'car',x:0,z:0,heading:0,group:{position:{x:0,z:0,set(x,y,z){this.x=x;this.y=y;this.z=z;}},rotation:{y:0},visible:true}};
-let modalOpened=0,legacyPhysicsCalls=0,legacyImpactCalls=0,saves=0,towed=0;
+let modalOpened=0,legacyPhysicsCalls=0,legacyImpactCalls=0,saves=0,towed=0,towStatus='';
 const context={
  console,Math,Date,Number,String,Array,Object,JSON,performance:{now:()=>1000},
  setTimeout:fn=>{fn();return 1;},clearTimeout:()=>{},
@@ -24,8 +24,8 @@ const context={
  openModal:(title,html,bind)=>{modalOpened++; if(bind)bind({});},closeModal:()=>{},escapeHtml:String,
  $:()=>({}),
  exitVehicle:()=>{context.player.vehicle=false;},
- worldLayoutPoint:id=>id==='workshop'?{x:22,z:-18}:id==='repairParking'?{x:32,z:-18}:{x:0,z:0},groundHeightAt:()=>0,
- persistParkedVehicle:()=>{towed++;},registerInteractable:item=>{context.world.interactables.push(item);return item;}
+	 worldLayoutPoint:id=>id==='workshop'?{x:22,z:-18}:id==='repairParking'?{x:32,z:-18}:{x:0,z:0},groundHeightAt:()=>0,
+	 persistParkedVehicle:()=>{towed++;},workshopMoveVehicleToYard:(target,status)=>{towStatus=status;target.group.position.set(44,0,-25);context.persistParkedVehicle(target);return true;},registerInteractable:item=>{context.world.interactables.push(item);return item;}
 };
 vm.createContext(context);vm.runInContext(source,context,{filename:'36a-vehicle-damage-repair-v704.js'});
 const api=context.window.OTTHI_VEHICLE_DAMAGE_V704;
@@ -49,6 +49,6 @@ api.damage(vehicle,10,100);
 assert.strictEqual(api.durability(vehicle),80,'batida média precisa reduzir integridade sem destruir');
 context.player.vehicle=true;
 assert.strictEqual(api.tow(vehicle),true,'reboque precisa funcionar');
-assert.strictEqual(vehicle.group.position.x,33.4);assert.strictEqual(vehicle.group.position.z,-18);assert.strictEqual(towed,1);
+assert.strictEqual(vehicle.group.position.x,44);assert.strictEqual(vehicle.group.position.z,-25);assert.notStrictEqual(vehicle.group.position.x,33.4,'reboque não pode usar a coordenada única do elevador');assert.strictEqual(towStatus,'pending');assert.strictEqual(towed,1);
 assert(saves>=3,'dano, reparo e reboque precisam persistir');
 console.log(JSON.stringify({passed:true,checks:14,durability:api.durability(vehicle),coins:context.state.profile.coins,modalOpened,legacyImpactCalls,legacyPhysicsCalls,towed,saves}));

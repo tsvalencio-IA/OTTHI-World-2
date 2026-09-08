@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.12-live-vehicles-brazilian-lanes-multiseat",
+  "build": "705.16.7.13-vehicle-parking-recovery",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,8 @@
     }
   },
   "changes": [
+    "R16.7.13 recupera automaticamente veículos já gravados na mesma coordenada do elevador ou sobrepostos no pátio, preservando no elevador somente a ordem de serviço realmente aberta.",
+    "R16.7.13 separa as 16 vagas visuais da coleção das três vagas operacionais da garagem, impede IDs de veículo duplicados no mundo e persiste a posição do carro durante a condução nos salvamentos já existentes.",
     "R16.7.12 publica a posição e a rotação reais do veículo enquanto o motorista dirige, permitindo que os demais jogadores acompanhem o carro em movimento sem esperar a saída do condutor.",
     "R16.7.12 unifica trânsito urbano, ônibus e OTTOVIAS na disposição brasileira observada no mapa e permite múltiplos jogadores reais como passageiros do mesmo veículo, respeitando a capacidade física de cada categoria.",
     "R16.7.11 impede vagas repetidas no pátio local e online, arbitra a ocupação única do elevador e sincroniza por autoridade a posição e a linha do tempo visual de NPCs, trânsito e ocorrências.",
@@ -208,6 +210,7 @@
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
+    "R16.7.13 é uma correção focal de posição e persistência de veículos. Não altera CSS, botões, orientação automática, missões, renders, trânsito, ações da oficina, Firebase Rules ou formato do Realtime Database.",
     "R16.7.12 é focal: não altera CSS, botões, orientação automática, oficina, pátio, ferro-velho, ordens de serviço, missões, renders existentes ou regras Firebase.",
     "A lista de passageiros é aditiva e mantém o campo legado do primeiro passageiro para compatibilidade com clientes anteriores.",
     "R16.7.11 é aditiva e focal: nenhuma ação, tela, pátio, ferro-velho, OS, missão, mapa, conta ou regra Firebase foi removida ou simplificada.",
@@ -239,8 +242,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70610,
-  "revisionLabel": "R16.7.12-veiculos-ao-vivo-transito-br-multiassento",
+  "assetVersion": 70611,
+  "revisionLabel": "R16.7.13-recuperacao-estacionamento-veiculos",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

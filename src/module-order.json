@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.12-live-vehicles-brazilian-lanes-multiseat",
+  "build": "705.16.7.13-vehicle-parking-recovery",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "96af50a12b897241d9857c69120f0cf1b6b6ce25ba79858f79a8ddaec1fa2178"
+      "sha256Body": "dd12bf7b34b9612829cfdcf01450b5cbfda67d15f6a77b5c76dc4030968761fe"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -112,7 +112,7 @@
       "startLine": 2743,
       "endLine": 2991,
       "description": "Casas, interiores, NPCs, inimigos, cristais, veículos e academia",
-      "sha256Body": "eb71c106c01faafdcc47b88db38e4ef163ca9293e7ad6bc4e33c183adb4f70a8"
+      "sha256Body": "4ceb05393dc878001db393a61dcd10a819e285437f3dce3f1979e5cc92bf19de"
     },
     {
       "file": "src/modules/13a-sports-kart-v705.js",
@@ -182,7 +182,7 @@
       "startLine": 3950,
       "endLine": 4126,
       "description": "Atividades, mercado, oficina, amizades, NPCs e corridas",
-      "sha256Body": "6ae3fe16506463853a5c64e1fca7286072102bf5c6f3a9e8d671a8a2404626ec"
+      "sha256Body": "da5d888e165ac437198bfd81108a3d1204fd0d58b420c94e0827f13031e4eed3"
     },
     {
       "file": "src/modules/22-careers-jobs-uniforms.js",
@@ -217,7 +217,7 @@
       "startLine": 4495,
       "endLine": 4635,
       "description": "Three.js, qualidade, viewport, resize, posição segura e colisões",
-      "sha256Body": "78d60c5144024c0e74aadacbe6e1b56d7f90d2fa9ded5c76255a0cb65338dbe2"
+      "sha256Body": "a6e4a9adf54463f4483c934a1dc05b1480c12557dcff8ccf4e240849faf6d272"
     },
     {
       "file": "src/modules/26-input-player-physics.js",
@@ -238,7 +238,7 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "daf573773a9850500372c7c1861923effe41b1d57b20711e86de37680f8c4e3b"
+      "sha256Body": "94074a4062b1465298d09509b45055d8a471628800fdc828871d3f7d69d68bfc"
     },
     {
       "file": "src/modules/28a-shared-world-multiplayer.js",
@@ -294,14 +294,14 @@
       "startLine": 5958,
       "endLine": 6056,
       "description": "Construção modular, oficina e veículos montáveis",
-      "sha256Body": "ddcb10408e01879252d14294268c55f52e9229537196016aab56bc6c66367ce2"
+      "sha256Body": "41fee788b73f669abe6be529c0e50a5f3c8cd3c1f33257260523a56bb0195ede"
     },
     {
       "file": "src/modules/36a-vehicle-damage-repair-v704.js",
       "startLine": 0,
       "endLine": 0,
       "description": "Dano, quebra, reboque e reparo real de veículos V704",
-      "sha256Body": "a5089c778cb96bb4858fc09e38b90b43bea5bdc350376ba7008ed3089c052a60"
+      "sha256Body": "74f3f6bb582766121bc4e10a11f9b0f37f6697e05b2e6547603584ebfbbafc4a"
     },
     {
       "file": "src/modules/37-hero-platform-gameplay.js",
