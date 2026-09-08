@@ -78,7 +78,10 @@ for status in ("ready", "pending", "unrepairable"):
     require(len(slots) == len(set(slots)), f"vagas repetidas no setor {status}")
 
 version = json.loads(read("VERSION.json"))
-require(version["build"] == module_order["build"] == "705.16.7.11-shared-world-authority-yard", "build inconsistente")
+build = str(version["build"])
+lineage = re.match(r"^705\.16\.7\.(\d+)-", build)
+require(build == module_order["build"], "build inconsistente")
+require(lineage is not None and int(lineage.group(1)) >= 11, "teste R16.7.11 executado fora da sua linhagem")
 require(version["validation"]["multiplayerTwoDevicesApproved"] is False, "teste físico não pode ser declarado sem dois celulares")
 
 print("R16.7.11 shared-world: 38 verificações aprovadas")

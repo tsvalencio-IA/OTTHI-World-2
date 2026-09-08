@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.11-shared-world-authority-yard",
+  "build": "705.16.7.12-live-vehicles-brazilian-lanes-multiseat",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,8 @@
     }
   },
   "changes": [
+    "R16.7.12 publica a posição e a rotação reais do veículo enquanto o motorista dirige, permitindo que os demais jogadores acompanhem o carro em movimento sem esperar a saída do condutor.",
+    "R16.7.12 unifica trânsito urbano, ônibus e OTTOVIAS na disposição brasileira observada no mapa e permite múltiplos jogadores reais como passageiros do mesmo veículo, respeitando a capacidade física de cada categoria.",
     "R16.7.11 impede vagas repetidas no pátio local e online, arbitra a ocupação única do elevador e sincroniza por autoridade a posição e a linha do tempo visual de NPCs, trânsito e ocorrências.",
     "R16.7.11 mantém motorista e passageiro visíveis dentro do veículo remoto, compartilha ferramenta, skill, ação, cores, sirene, turbo e impacto, e usa o mesmo mapeamento físico de rodas nos dois aparelhos.",
     "R16.7.10 sincroniza a linha do tempo completa do mecânico entre jogadores, oferece acompanhamento no mundo aberto ou em câmera 360°, corrige o lado físico das rodas e desloca o trânsito comum para a faixa direita.",
@@ -199,10 +201,15 @@
     "apkUpdaterStaticApproved": true,
     "sportActionStaticApproved": true,
     "sharedWorldStaticApproved": true,
-    "globalWorkshopOccupancyStaticApproved": true
+    "globalWorkshopOccupancyStaticApproved": true,
+    "liveVehiclePresenceStaticApproved": true,
+    "brazilianTrafficLaneStaticApproved": true,
+    "vehicleMultiSeatStaticApproved": true
   },
   "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
   "notes": [
+    "R16.7.12 é focal: não altera CSS, botões, orientação automática, oficina, pátio, ferro-velho, ordens de serviço, missões, renders existentes ou regras Firebase.",
+    "A lista de passageiros é aditiva e mantém o campo legado do primeiro passageiro para compatibilidade com clientes anteriores.",
     "R16.7.11 é aditiva e focal: nenhuma ação, tela, pátio, ferro-velho, OS, missão, mapa, conta ou regra Firebase foi removida ou simplificada.",
     "A autoridade compartilhada publica evento, estado e tempo em frequência limitada; cada aparelho interpola a cena localmente, sem transmitir cada quadro pelo Firebase.",
     "Os testes desta árvore validam estrutura e simulação local. A homologação multiplayer em dois celulares físicos continua marcada separadamente como pendente até o teste real.",
@@ -232,8 +239,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70609,
-  "revisionLabel": "R16.7.11-mundo-compartilhado-patio-global",
+  "assetVersion": 70610,
+  "revisionLabel": "R16.7.12-veiculos-ao-vivo-transito-br-multiassento",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

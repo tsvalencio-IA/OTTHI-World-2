@@ -20,6 +20,9 @@ function sanitizePublicName(value='Jogador'){
 function neutralPublicName(uid=user?.uid||'0000'){const suffix=String(uid||'0000').replace(/[^a-z0-9]/gi,'').slice(-4).toUpperCase().padStart(4,'0');return`Jogador ${suffix}`}
 const PRESENCE_AVATAR_FIELDS=Object.freeze(['renderMode','bodyStyle','skinTone','face','hair','hairColor','torso','legs','shoes','hat','back','pattern','primaryColor','secondaryColor','outfit','accessory','uniform']);
 function sanitizePresenceAvatar(value={}){const source=value&&typeof value==='object'?value:{},clean={v:3};for(const field of PRESENCE_AVATAR_FIELDS){const raw=String(source[field]??'').slice(0,32);clean[field]=(field.endsWith('Color')||field==='skinTone')&&/^#[0-9a-f]{6}$/i.test(raw)?raw.toLowerCase():raw.replace(/[^A-Za-z0-9_-]/g,'').slice(0,28);}return clean}
+function sanitizePresenceUidList(value=[]){const source=Array.isArray(value)?value:[value],out=[];for(const raw of source){const uid=String(raw||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,128);if(uid&&!out.includes(uid))out.push(uid);if(out.length>=3)break;}return out}
+function presenceVehicleSeatCapacity(value={}){const body=String(value?.vehicleBodyType||'').toLowerCase(),kind=String(value?.vehicleKind||'').toLowerCase(),requested=Math.floor(Number(value?.vehicleSeatCapacity));const physical=body==='moto'||['moto','motorcycle','bicycle','bike','skate'].includes(kind)?1:body==='truck'||['firefighter','fire'].includes(kind)?2:3;return Number.isFinite(requested)?Math.max(1,Math.min(physical,requested)):physical}
+function presenceVehiclePassengerCount(value={}){const uids=sanitizePresenceUidList([...(Array.isArray(value?.vehiclePassengerUids)?value.vehiclePassengerUids:[]),value?.vehiclePassengerUid]);return Math.min(presenceVehicleSeatCapacity(value),uids.length+(value?.vehiclePassengerBotId?1:0))}
 function publicHouseName(houseId=''){return({home:'Casa inicial',blue:'Casa Azul',pink:'Casa Rosa',cabin:'Cabana da Floresta'})[String(houseId||'')]||'Casa online'}
 function publicHousePrice(houseId=''){return({home:0,blue:250,pink:420,cabin:180})[String(houseId||'')]??0}
 function canonicalHouseRecord(houseId,current={},overrides={}){
@@ -229,7 +232,7 @@ async function connect(options={}){
   })();return connecting;
 }
 async function publish(payload,force=false){
-  lastPresence={...lastPresence,...payload,avatar:sanitizePresenceAvatar(payload.avatar||lastPresence?.avatar||{}),avatarSig:String(payload.avatarSig||lastPresence?.avatarSig||'').replace(/[^A-Za-z0-9_#|.-]/g,'').slice(0,640),name:neutralPublicName(user?.uid),room:currentRoom(),emoteType:String(payload.emoteType||lastPresence?.emoteType||'').slice(0,16),emoteSeq:Number(payload.emoteSeq??lastPresence?.emoteSeq??0)};
+  const merged={...lastPresence,...payload},vehiclePassengerUids=sanitizePresenceUidList(merged.vehiclePassengerUids),vehicleSeatCapacity=presenceVehicleSeatCapacity(merged);lastPresence={...merged,vehiclePassengerUids,vehiclePassengerUid:vehiclePassengerUids[0]||'',vehiclePassengerCount:Math.min(vehicleSeatCapacity,vehiclePassengerUids.length+(merged.vehiclePassengerBotId?1:0)),vehicleSeatCapacity,avatar:sanitizePresenceAvatar(payload.avatar||lastPresence?.avatar||{}),avatarSig:String(payload.avatarSig||lastPresence?.avatarSig||'').replace(/[^A-Za-z0-9_#|.-]/g,'').slice(0,640),name:neutralPublicName(user?.uid),room:currentRoom(),emoteType:String(payload.emoteType||lastPresence?.emoteType||'').slice(0,16),emoteSeq:Number(payload.emoteSeq??lastPresence?.emoteSeq??0)};
   if(!connected||!multiplayerAllowed()||!refs.presence||!api)return false;const nowPerf=performance.now();if(!force&&nowPerf-presenceWrite<200)return false;presenceWrite=nowPerf;
   try{
     if(refs.slot&&(force||nowPerf-slotTouchAt>5000)){
@@ -338,6 +341,7 @@ async function sendSocialRequest(targetUid,actionType,targetName='Jogador',extra
   if(actionType==='boatPassenger'&&(!lastPresence?.boating||lastPresence?.boatRole!=='driver'||!lastPresence?.boatId))return{ok:false,error:'Entre no barco como motorista antes de convidar'};
   if(actionType==='boatPassenger'&&(target.boating||target.vehicle||target.transitMode))return{ok:false,error:'O jogador já está em outro transporte'};
   if(actionType==='vehiclePassenger'&&(!lastPresence?.vehicle||lastPresence?.vehicleRole!=='driver'||!lastPresence?.vehicleId))return{ok:false,error:'Entre no carro como motorista antes de convidar'};
+  if(actionType==='vehiclePassenger'&&presenceVehiclePassengerCount(lastPresence)>=presenceVehicleSeatCapacity(lastPresence))return{ok:false,error:'Todos os assentos deste carro já estão ocupados'};
   if(actionType==='vehiclePassenger'&&(target.vehicle||target.boating||target.transitMode))return{ok:false,error:'O jogador já está em outro transporte'};
   try{
     const inbox=api.ref(db,`${ROOT}/users/${targetUid}/socialRequests`),bucket=Math.floor(now/30000),safeUid=String(user.uid).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,64),id=`req_${safeUid}_${actionType}_${bucket}`,r=api.child(inbox,id);
@@ -360,7 +364,7 @@ async function respondSocialRequest(requestId,decision){
     else if(status==='accepted'&&request.actionType==='boatPassenger'&&(sender.boatPassengerUid||sender.boatPassengerBotId)){status='cancelled';reason='O barco já tem um passageiro.'}
     else if(status==='accepted'&&request.actionType==='boatPassenger'&&(lastPresence?.boating||lastPresence?.vehicle||lastPresence?.transitMode)){status='cancelled';reason='Você já está em outro transporte.'}
     else if(status==='accepted'&&request.actionType==='vehiclePassenger'&&(!sender.vehicle||sender.vehicleRole!=='driver'||sender.vehicleId!==request.extra?.vehicleId)){status='cancelled';reason='O carro não está mais disponível.'}
-    else if(status==='accepted'&&request.actionType==='vehiclePassenger'&&(sender.vehiclePassengerUid||sender.vehiclePassengerBotId)){status='cancelled';reason='O carro já tem um passageiro.'}
+    else if(status==='accepted'&&request.actionType==='vehiclePassenger'&&presenceVehiclePassengerCount(sender)>=presenceVehicleSeatCapacity(sender)){status='cancelled';reason='Todos os assentos do carro já estão ocupados.'}
     else if(status==='accepted'&&request.actionType==='vehiclePassenger'&&(lastPresence?.vehicle||lastPresence?.boating||lastPresence?.transitMode)){status='cancelled';reason='Você já está em outro transporte.'}
     await api.update(ref,{status,respondedAt:api.serverTimestamp(),respondedAtClient:now});requestCache[requestId]={...request,status,respondedAtClient:now};recordActivity('social',`${request.actionType}-${status}`,{direction:'performed',peerUid:request.fromUid,eventId:`social-response-${requestId}-${status}`});sendInteraction(request.fromUid,{type:'socialRequestResult',requestId,actionType:request.actionType,status}).catch(()=>false);
     return{ok:status==='accepted',status,reason,id:requestId,...request};

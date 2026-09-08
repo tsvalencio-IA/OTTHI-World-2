@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.11-shared-world-authority-yard",
+  "build": "705.16.7.12-live-vehicles-brazilian-lanes-multiseat",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "cf4db930cc8d1fe4e738b27fc9a80fa8f0357ecba670cde9d7dd523cfc2b62d2"
+      "sha256Body": "96af50a12b897241d9857c69120f0cf1b6b6ce25ba79858f79a8ddaec1fa2178"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -70,7 +70,7 @@
       "startLine": 1456,
       "endLine": 1604,
       "description": "Rotas, trânsito, grafo, GPS e minimapa",
-      "sha256Body": "b0636b754e7ba3e23321e7c89a694ed3f21fef3ba07ed8213742632240bea093"
+      "sha256Body": "dfb96d511b5291852607b4ea6b01c0388c0ea5cb235d07d268f290a5dc92588d"
     },
     {
       "file": "src/modules/08-map-parent-settings.js",
@@ -84,7 +84,7 @@
       "startLine": 1808,
       "endLine": 2074,
       "description": "Responsividade, AR, modos, qualidade, LOD e diagnóstico",
-      "sha256Body": "ce95d2d1d67dd5b4d634a9e6f04c521842786af96421a4a289a0be2732777277"
+      "sha256Body": "9324867cbf089154bf99c9419c507f0a4cb57fcaf2f782fce00c1c8e596d8d4f"
     },
     {
       "file": "src/modules/10-player-skills.js",
@@ -133,14 +133,14 @@
       "startLine": 0,
       "endLine": 0,
       "description": "Rodovia OTTOVIAS integrada: circuito, biomas, pedágios, Michelle e ronda guiada",
-      "sha256Body": "fd0756e906c7a2e55a6f0291acc513d6606031fdf2f815f5a95eee356edf573e"
+      "sha256Body": "3f22ee8d806268fe1c5ee53d80ebaa32fcf903726dcac025fb60c1f81dc454f0"
     },
     {
       "file": "src/modules/15-transit-bus-metro.js",
       "startLine": 3087,
       "endLine": 3308,
       "description": "Ônibus, rotas viárias, paradas, metrô e painel de transporte",
-      "sha256Body": "f7a3d75ba36d45a0282760591500234aa42ab3f730986b73d23520b78bc17a1e"
+      "sha256Body": "704ddc6057dc7b7322c02094ad2363a97782c7a92d8b47ed5a1a2d370ef07e83"
     },
     {
       "file": "src/modules/16-emergency-services.js",
@@ -196,7 +196,7 @@
       "startLine": 4245,
       "endLine": 4381,
       "description": "Poeira, som, efeitos, controles, direção, passageiros e ponte",
-      "sha256Body": "635c627701df7d96878ea2250e6d90038bfd21d983fb32db8e27ccb15fa1c938"
+      "sha256Body": "5b3959926baad95c79ea2828acacad003b5141edacfba8af1a4d797fa05d3786"
     },
     {
       "file": "src/modules/24-construction-system.js",
@@ -217,35 +217,35 @@
       "startLine": 4495,
       "endLine": 4635,
       "description": "Three.js, qualidade, viewport, resize, posição segura e colisões",
-      "sha256Body": "3bca63f0d8bbcfa1285582626eab9d529e0a1287f0b95a69b67ba92c69462214"
+      "sha256Body": "78d60c5144024c0e74aadacbe6e1b56d7f90d2fa9ded5c76255a0cb65338dbe2"
     },
     {
       "file": "src/modules/26-input-player-physics.js",
       "startLine": 4637,
       "endLine": 4765,
       "description": "Entrada, corrida, pulo, física do jogador/veículo e animação",
-      "sha256Body": "bfc32278e9f9d27ce86dd17e4ff138d0d1c588fed3ed01d7c78cd27667dcd0a5"
+      "sha256Body": "cc4332542519df3c19615e6e30ac2023d2c437d046b6ea248ab8355f5f684a59"
     },
     {
       "file": "src/modules/27-npc-enemies-combat-camera-action.js",
       "startLine": 4767,
       "endLine": 4928,
       "description": "Sociedade NPC, inimigos, combate, câmera, contexto, ação e necessidades",
-      "sha256Body": "5b512acb04e73076f38b7a5083a8675b6ef723289868a25415db23d9bc1d4d5d"
+      "sha256Body": "8a76c1d3f3e8aafb0ab38112cd639daafab93e556fa6843fd9dbc4db74a23d57"
     },
     {
       "file": "src/modules/28-multiplayer-social-online.js",
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "ba074dbb325c41bcff304c431296374e44a0e356fc0a48d57d3d84eb2a14612e"
+      "sha256Body": "daf573773a9850500372c7c1861923effe41b1d57b20711e86de37680f8c4e3b"
     },
     {
       "file": "src/modules/28a-shared-world-multiplayer.js",
       "startLine": 0,
       "endLine": 0,
       "description": "Autoridade compartilhada de NPCs e trânsito, oficina global e estado visual multiplayer",
-      "sha256Body": "5f49f2b3bb45f01a6f411422feff00a2c9bf2dc28ff1342f5d27584a8a285039"
+      "sha256Body": "ce4e1ec41e185517699d0fef02d346bb2fdac4e70cff94c62dfb6a60179dd04e"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",

@@ -13,12 +13,7 @@
   }
   function projectedBusPoint(point){const projection=nearestRoadProjection(point);return projection?.point?{...point,x:projection.point.x,z:projection.point.z}:{...point};}
   function offsetBusPath(points,offset=BUS_LANE_OFFSET){
-    const source=compactBusPath(points);if(source.length<2)return source;
-    return source.map((point,index)=>{
-      const prev=source[(index-1+source.length)%source.length],next=source[(index+1)%source.length],dx=next.x-prev.x,dz=next.z-prev.z,len=Math.hypot(dx,dz)||1,rightX=dz/len,rightZ=-dx/len;
-      for(const amount of [offset,offset*.72,offset*.45,0]){const x=point.x+rightX*amount,z=point.z+rightZ*amount;if(pointOnRoad(x,z,-1.62))return{...point,x,z};}
-      return{...point};
-    });
+    const source=compactBusPath(points);if(source.length<2)return source;return offsetBrazilianTrafficPath(source,offset,{closed:true,valid:(x,z)=>pointOnRoad(x,z,-1.62),factors:[1,.72,.45,0]});
   }
   function buildBusRoadPath(route){
     const source=route?.points||[];if(source.length<2)return source.map(projectedBusPoint);

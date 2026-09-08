@@ -11,7 +11,7 @@
   })();
   window.OTTHI_CONFIG = {
     version: 705,
-    build: '705.16.7.11-shared-world-authority-yard',
+    build: '705.16.7.12-live-vehicles-brazilian-lanes-multiseat',
     repository: repo,
     baseUrl,
     firebaseRoot: 'otthosWorld',

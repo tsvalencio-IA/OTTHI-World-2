@@ -117,7 +117,7 @@
   }
   function resetPlayerModesForRecovery(){
     clearMovementInputs?.();
-    if(player.vehicle){const vehicle=currentVehicleRef?.();if(vehicle){vehicle.occupied=false;vehicle.group.visible=true;}player.vehicle=false;activeVehicleRef=null;world.activeVehicle=null;player.car.id='';player.car.speed=0;player.car.passengerOf='';player.car.passengerUid='';player.car.passengerBotId='';vehicleVisual&&(vehicleVisual.visible=false);stopEngineSound?.();}
+    if(player.vehicle){const vehicle=currentVehicleRef?.();if(vehicle){vehicle.occupied=false;vehicle.group.visible=true;}player.vehicle=false;activeVehicleRef=null;world.activeVehicle=null;player.car.id='';player.car.speed=0;player.car.passengerOf='';player.car.passengerUid='';player.car.passengerUids=[];player.car.passengerBotId='';vehicleVisual&&(vehicleVisual.visible=false);stopEngineSound?.();}
     if(player.boating){player.boating=false;player.boat.speed=0;player.boat.passengerOf='';player.boat.passengerUid='';player.boat.passengerBotId='';}
     if(player.transit?.mode){player.transit.mode='';player.transit.busId='';player.transit.metroUntil=0;if(metroOverlay){metroOverlay.hidden=true;metroOverlay.classList.remove('travelling','arriving');}}
     player.swimming=false;player.sitUntil=0;player.airJumpAvailable=true;player.lastJumpWasAir=false;if(playerModel)playerModel.visible=true;if(avatarLayer)avatarLayer.visible=true;if(contactShadow)contactShadow.visible=true;
