@@ -1,6 +1,6 @@
 {
   "version": 705,
-  "build": "705.16.7.13-vehicle-parking-recovery",
+  "build": "705.16.7.14-multiplayer-world-fidelity-rides",
   "name": "OTTHI World",
   "sourceArchitecture": "modular-source-with-generated-runtime-bundle",
   "runtimeBundle": "app.js",
@@ -42,6 +42,10 @@
     }
   },
   "changes": [
+    "R16.7.14 sincroniza a identidade visual real do avatar multiplayer com as famílias LEGO, Minecraft/Manycraft, Playmobil, Mario e Luigi, reutilizando as mesmas proporções, pivôs, rosto, cabelo, acessórios e uniforme efetivo do personagem local.",
+    "R16.7.14 transmite e reconstrói o veículo remoto pelo mesmo construtor visual do veículo local, incluindo categoria real (moto, carro, utilitário ou caminhão), tema, carroceria, capô, teto, rodas, traseira, luzes, cores, durabilidade e visuais de serviço.",
+    "R16.7.14 completa o multiassento em dois sentidos: o motorista pode convidar e o jogador a pé pode pedir para andar junto; motorista, passageiro e garupa usam posições próprias por categoria e compartilham o mesmo veículo real.",
+    "R16.7.14 preserva a autoridade compartilhada existente para NPCs, trânsito e ocorrências e mantém compatibilidade com os campos legados de presença e passageiro.",
     "R16.7.13 recupera automaticamente veículos já gravados na mesma coordenada do elevador ou sobrepostos no pátio, preservando no elevador somente a ordem de serviço realmente aberta.",
     "R16.7.13 separa as 16 vagas visuais da coleção das três vagas operacionais da garagem, impede IDs de veículo duplicados no mundo e persiste a posição do carro durante a condução nos salvamentos já existentes.",
     "R16.7.12 publica a posição e a rotação reais do veículo enquanto o motorista dirige, permitindo que os demais jogadores acompanhem o carro em movimento sem esperar a saída do condutor.",
@@ -206,10 +210,15 @@
     "globalWorkshopOccupancyStaticApproved": true,
     "liveVehiclePresenceStaticApproved": true,
     "brazilianTrafficLaneStaticApproved": true,
-    "vehicleMultiSeatStaticApproved": true
+    "vehicleMultiSeatStaticApproved": true,
+    "multiplayerVisualFidelityStaticApproved": true,
+    "vehicleRideBidirectionalStaticApproved": true
   },
-  "release": "705.7-r14-responsive-global-sports-actions-apk-update-r11-lineage",
+  "release": "705.7-r16.7.14-multiplayer-fidelity-rides-r11-lineage",
   "notes": [
+    "R16.7.14 é focal no contrato e na reconstrução visual multiplayer: não altera CSS, mapa, missões, oficina, pátio, ferro-velho, Firebase Rules, autenticação ou formato persistente dos saves.",
+    "Para fidelidade visual completa entre aparelhos, todos os clientes da mesma sala devem carregar a mesma R16.7.14; o assetVersion 70612 força renovação do cache web/PWA.",
+    "A homologação multiplayer em dois aparelhos físicos permanece separada: os testes locais validam estrutura, contrato, renderização compartilhada e regressões, mas não substituem o teste final publicado em dois dispositivos.",
     "R16.7.13 é uma correção focal de posição e persistência de veículos. Não altera CSS, botões, orientação automática, missões, renders, trânsito, ações da oficina, Firebase Rules ou formato do Realtime Database.",
     "R16.7.12 é focal: não altera CSS, botões, orientação automática, oficina, pátio, ferro-velho, ordens de serviço, missões, renders existentes ou regras Firebase.",
     "A lista de passageiros é aditiva e mantém o campo legado do primeiro passageiro para compatibilidade com clientes anteriores.",
@@ -242,8 +251,8 @@
     "Firebase, regras, contas e multiplayer permanecem preservados."
   ],
   "hotfix": "705.7",
-  "assetVersion": 70611,
-  "revisionLabel": "R16.7.13-recuperacao-estacionamento-veiculos",
+  "assetVersion": 70612,
+  "revisionLabel": "R16.7.14-fidelidade-multiplayer-veiculos-carona",
   "consolidationBase": {
     "repository": "tsvalencio-IA/OTTHI-World",
     "branch": "main",

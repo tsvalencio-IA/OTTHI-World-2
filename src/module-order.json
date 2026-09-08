@@ -1,13 +1,13 @@
 {
   "version": 705,
-  "build": "705.16.7.13-vehicle-parking-recovery",
+  "build": "705.16.7.14-multiplayer-world-fidelity-rides",
   "javascript": [
     {
       "file": "src/modules/00-runtime-foundation.js",
       "startLine": 4,
       "endLine": 49,
       "description": "Runtime, utilitários, versão, storage e chaves de migração",
-      "sha256Body": "dd12bf7b34b9612829cfdcf01450b5cbfda67d15f6a77b5c76dc4030968761fe"
+      "sha256Body": "b4f319dbc142eb1add0a8954180e32543695592fd26b5a22981d48f91bb93532"
     },
     {
       "file": "src/modules/00a-visual-foundation-avatar-v2.js",
@@ -196,7 +196,7 @@
       "startLine": 4245,
       "endLine": 4381,
       "description": "Poeira, som, efeitos, controles, direção, passageiros e ponte",
-      "sha256Body": "5b3959926baad95c79ea2828acacad003b5141edacfba8af1a4d797fa05d3786"
+      "sha256Body": "d5e24e1c1b8618cf029392bce995ece2e0a435f80c8a5e5949614ee40b4887ef"
     },
     {
       "file": "src/modules/24-construction-system.js",
@@ -238,14 +238,14 @@
       "startLine": 4930,
       "endLine": 5122,
       "description": "Desafios online, social, chat, presença, fantasmas e sincronização",
-      "sha256Body": "94074a4062b1465298d09509b45055d8a471628800fdc828871d3f7d69d68bfc"
+      "sha256Body": "19b6796571d0378050bc4106f10c357ef762df24f413e28110e1f6d3f305d759"
     },
     {
       "file": "src/modules/28a-shared-world-multiplayer.js",
       "startLine": 0,
       "endLine": 0,
       "description": "Autoridade compartilhada de NPCs e trânsito, oficina global e estado visual multiplayer",
-      "sha256Body": "ce4e1ec41e185517699d0fef02d346bb2fdac4e70cff94c62dfb6a60179dd04e"
+      "sha256Body": "d5fd36fd5740a1315a99db938e63ab948fb9d04dfe03c8baa3383fa79df0312e"
     },
     {
       "file": "src/modules/29-game-loop-controls-gamepad.js",
@@ -294,7 +294,7 @@
       "startLine": 5958,
       "endLine": 6056,
       "description": "Construção modular, oficina e veículos montáveis",
-      "sha256Body": "41fee788b73f669abe6be529c0e50a5f3c8cd3c1f33257260523a56bb0195ede"
+      "sha256Body": "6c008e9dd3c65715562a00c807c27a6c6aa0ccd5ca7380efeccac937f66b87cd"
     },
     {
       "file": "src/modules/36a-vehicle-damage-repair-v704.js",
